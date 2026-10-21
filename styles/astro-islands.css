@@ -1,0 +1,5 @@
+/* Preserve the original sibling-based spacing across the hydration boundary. */
+doclist-island[data-component="GeographyFields"] > .filter-group:last-child {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 16px;
+}

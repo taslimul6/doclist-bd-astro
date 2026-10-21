@@ -1,0 +1,35 @@
+---
+import type {Metadata} from '../../lib/metadata-types';
+const {metadata:m,lang} = Astro.props as {metadata:Metadata;lang:string};
+const isHome=Astro.url.pathname==='/'||Astro.url.pathname==='/en';
+const title = typeof m.title==='string' ? m.title+(isHome?'':' | Doclist Bd') : m.title?.absolute || m.title?.default || 'Doclist Bd';
+const robots=m.robots;
+const directives=robots?[robots.index===false?'noindex':'index',robots.follow===false?'nofollow':'follow'].join(', '):null;
+const bot=robots?.googleBot;
+const botDirectives=bot?Object.entries(bot).map(([k,v])=>k==='index'||k==='follow'?(v?k:'no'+k):k+':'+v).join(', '):null;
+const og=m.openGraph,tw=m.twitter;
+const metadataUrl=(url:string)=>/^https?:\/\/[^/]+\/$/.test(url)?url.slice(0,-1):url;
+---
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>{title}</title>
+{m.description&&<meta name="description" content={m.description}/>}
+{m.applicationName&&<meta name="application-name" content={m.applicationName}/>}
+<link rel="icon" href="/favicon.svg"/>
+{m.alternates?.canonical&&<link rel="canonical" href={metadataUrl(m.alternates.canonical)}/>}
+{Object.entries(m.alternates?.languages||{}).map(([code,href])=><link rel="alternate" hreflang={code} href={metadataUrl(href)}/>)}
+{directives&&<meta name="robots" content={directives}/>}
+{botDirectives&&<meta name="googlebot" content={botDirectives}/>}
+{og?.title&&<meta property="og:title" content={og.title}/>}
+{og?.description&&<meta property="og:description" content={og.description}/>}
+{og?.url&&<meta property="og:url" content={metadataUrl(og.url)}/>}
+{og?.siteName&&<meta property="og:site_name" content={og.siteName}/>}
+{og?.type&&<meta property="og:type" content={og.type}/>}
+{og?.locale&&<meta property="og:locale" content={og.locale}/>}
+{og?.alternateLocale?.map(locale=><meta property="og:locale:alternate" content={locale}/>)}
+{tw?.card&&<meta name="twitter:card" content={tw.card}/>}
+{tw?.title&&<meta name="twitter:title" content={tw.title}/>}
+{tw?.description&&<meta name="twitter:description" content={tw.description}/>}
+<script is:inline>
+try{var s=localStorage.getItem('doclist-theme');var d=s==='dark'||(s!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.dataset.theme=d?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}
+</script>

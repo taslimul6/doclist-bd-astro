@@ -1,0 +1,19 @@
+{
+  "rule": "non-standard NaN/Infinity tokens converted to JSON null; no other intended semantic change",
+  "files": [
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_chattogram_v1/chattogram_doctors_by_hospital_v1.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_dhaka_expansion_v3/dhaka_doctors_by_hospital_v3.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_divisions_deep_v2/rangpur/rangpur_doctors_by_hospital_deep_v2.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_divisions_deep_v2/sylhet/sylhet_doctors_by_hospital_deep_v2.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_divisions_deep_v2/barishal/barishal_doctors_by_hospital_deep_v2.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_divisions_deep_v2/mymensingh/mymensingh_doctors_by_hospital_deep_v2.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_divisions_deep_v2/rajshahi/rajshahi_doctors_by_hospital_deep_v2.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_divisions_deep_v2/khulna/khulna_doctors_by_hospital_deep_v2.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_6_divisions_v1/bd_doctors_remaining_divisions_v1/rangpur/rangpur_doctors_by_hospital_v1.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_6_divisions_v1/bd_doctors_remaining_divisions_v1/sylhet/sylhet_doctors_by_hospital_v1.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_6_divisions_v1/bd_doctors_remaining_divisions_v1/barishal/barishal_doctors_by_hospital_v1.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_6_divisions_v1/bd_doctors_remaining_divisions_v1/mymensingh/mymensingh_doctors_by_hospital_v1.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_6_divisions_v1/bd_doctors_remaining_divisions_v1/rajshahi/rajshahi_doctors_by_hospital_v1.json",
+    "doclist_bd_all_scraped_json_final/history/bd_doctors_remaining_6_divisions_v1/bd_doctors_remaining_divisions_v1/khulna/khulna_doctors_by_hospital_v1.json"
+  ]
+}

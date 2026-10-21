@@ -1,0 +1,47 @@
+---
+import Head from '../layouts/Head.astro';
+import '../../styles/header.css';
+import '../../styles/footer.css';
+import '../../styles/directory.css';
+import '../../styles/profile.css';
+import '../../styles/responsive.css';
+import '../../styles/globals.css';
+import '../../styles/astro-islands.css';
+import {resolveRoute,requestQuery} from '../../lib/routes';
+import {renderPage,missingPage,errorPage} from '../../lib/render';
+import {RouteResponse} from '../../lib/navigation';
+import type {Metadata} from '../../lib/metadata-types';
+import type {Locale} from '../../lib/i18n';
+
+const lang:Locale = /^\/en(?:\/|$)/.test(Astro.url.pathname)?'en':'bn';
+let metadata:Metadata={}, html='';
+try {
+  const {module,params}=resolveRoute(Astro.url.pathname);
+  const props={params:Promise.resolve(params),searchParams:Promise.resolve(requestQuery(Astro.url))};
+  metadata=await module.generateMetadata(props);
+  html=renderPage(await module.default(props),lang,Astro.url.pathname);
+} catch(error) {
+  if(error instanceof RouteResponse&&error.location) return Astro.redirect(error.location,308);
+  const missing=error instanceof RouteResponse&&error.status===404;
+  Astro.response.status=missing?404:500;
+  Astro.response.headers.set('X-Robots-Tag','noindex, follow');
+  if(!missing) console.error('Directory render failed',error);
+  metadata={title:missing?(lang==='en'?'Page not found':'পৃষ্ঠাটি পাওয়া যায়নি'):(lang==='en'?'Something went wrong':'কিছু সমস্যা হয়েছে'),robots:{index:false,follow:true}};
+  html=renderPage(missing?missingPage(lang):errorPage(lang),lang,Astro.url.pathname);
+}
+---
+<!doctype html>
+<html lang={lang}>
+  <head><Head metadata={metadata} lang={lang}/></head>
+  <body>
+    <Fragment set:html={html}/>
+    <script>import '../../islands/hydrate';</script>
+    <script is:inline id="google-analytics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SJSQXS7FJ9');
+    </script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-SJSQXS7FJ9"></script>
+  </body>
+</html>

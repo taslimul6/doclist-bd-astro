@@ -1,0 +1,514 @@
+[
+  {
+    "division": "Rangpur",
+    "district": "Kurigram",
+    "canonical_chamber_records": 13,
+    "approx_unique_doctor_names": 13,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rangpur",
+    "district": "Lalmonirhat",
+    "canonical_chamber_records": 16,
+    "approx_unique_doctor_names": 16,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rangpur",
+    "district": "Panchagarh",
+    "canonical_chamber_records": 12,
+    "approx_unique_doctor_names": 12,
+    "hospital_clinic_nodes": 4,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rangpur",
+    "district": "Dinajpur",
+    "canonical_chamber_records": 30,
+    "approx_unique_doctor_names": 30,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rangpur",
+    "district": "Rangpur",
+    "canonical_chamber_records": 165,
+    "approx_unique_doctor_names": 129,
+    "hospital_clinic_nodes": 10,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rangpur",
+    "district": "Gaibandha",
+    "canonical_chamber_records": 16,
+    "approx_unique_doctor_names": 16,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rangpur",
+    "district": "Nilphamari",
+    "canonical_chamber_records": 22,
+    "approx_unique_doctor_names": 22,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rangpur",
+    "district": "Thakurgaon",
+    "canonical_chamber_records": 15,
+    "approx_unique_doctor_names": 15,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Sylhet",
+    "district": "Habiganj",
+    "canonical_chamber_records": 17,
+    "approx_unique_doctor_names": 15,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Sylhet",
+    "district": "Moulvibazar",
+    "canonical_chamber_records": 21,
+    "approx_unique_doctor_names": 20,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Sylhet",
+    "district": "Sylhet",
+    "canonical_chamber_records": 224,
+    "approx_unique_doctor_names": 173,
+    "hospital_clinic_nodes": 10,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Sylhet",
+    "district": "Sunamganj",
+    "canonical_chamber_records": 18,
+    "approx_unique_doctor_names": 17,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Barishal",
+    "district": "Jhalokati",
+    "canonical_chamber_records": 22,
+    "approx_unique_doctor_names": 22,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Barishal",
+    "district": "Patuakhali",
+    "canonical_chamber_records": 26,
+    "approx_unique_doctor_names": 26,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Barishal",
+    "district": "Bhola",
+    "canonical_chamber_records": 27,
+    "approx_unique_doctor_names": 26,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Barishal",
+    "district": "Pirojpur",
+    "canonical_chamber_records": 16,
+    "approx_unique_doctor_names": 16,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Barishal",
+    "district": "Barishal",
+    "canonical_chamber_records": 191,
+    "approx_unique_doctor_names": 138,
+    "hospital_clinic_nodes": 9,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Barishal",
+    "district": "Barguna",
+    "canonical_chamber_records": 15,
+    "approx_unique_doctor_names": 15,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Chandpur",
+    "canonical_chamber_records": 16,
+    "approx_unique_doctor_names": 16,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Brahmanbaria",
+    "canonical_chamber_records": 20,
+    "approx_unique_doctor_names": 20,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Lakshmipur",
+    "canonical_chamber_records": 12,
+    "approx_unique_doctor_names": 12,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Feni",
+    "canonical_chamber_records": 16,
+    "approx_unique_doctor_names": 16,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Bandarban",
+    "canonical_chamber_records": 13,
+    "approx_unique_doctor_names": 13,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Chattogram",
+    "canonical_chamber_records": 297,
+    "approx_unique_doctor_names": 283,
+    "hospital_clinic_nodes": 13,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Cumilla",
+    "canonical_chamber_records": 15,
+    "approx_unique_doctor_names": 15,
+    "hospital_clinic_nodes": 4,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Cox's Bazar",
+    "canonical_chamber_records": 39,
+    "approx_unique_doctor_names": 39,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Khagrachhari",
+    "canonical_chamber_records": 16,
+    "approx_unique_doctor_names": 16,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Noakhali",
+    "canonical_chamber_records": 23,
+    "approx_unique_doctor_names": 23,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Chattogram",
+    "district": "Rangamati",
+    "canonical_chamber_records": 25,
+    "approx_unique_doctor_names": 22,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Mymensingh",
+    "district": "Jamalpur",
+    "canonical_chamber_records": 20,
+    "approx_unique_doctor_names": 20,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Mymensingh",
+    "district": "Sherpur",
+    "canonical_chamber_records": 15,
+    "approx_unique_doctor_names": 15,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Mymensingh",
+    "district": "Netrokona",
+    "canonical_chamber_records": 20,
+    "approx_unique_doctor_names": 18,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Mymensingh",
+    "district": "Mymensingh",
+    "canonical_chamber_records": 253,
+    "approx_unique_doctor_names": 192,
+    "hospital_clinic_nodes": 11,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rajshahi",
+    "district": "Rajshahi",
+    "canonical_chamber_records": 291,
+    "approx_unique_doctor_names": 267,
+    "hospital_clinic_nodes": 39,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rajshahi",
+    "district": "Pabna",
+    "canonical_chamber_records": 87,
+    "approx_unique_doctor_names": 85,
+    "hospital_clinic_nodes": 25,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rajshahi",
+    "district": "Natore",
+    "canonical_chamber_records": 37,
+    "approx_unique_doctor_names": 36,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rajshahi",
+    "district": "Joypurhat",
+    "canonical_chamber_records": 44,
+    "approx_unique_doctor_names": 44,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rajshahi",
+    "district": "Chapainawabganj",
+    "canonical_chamber_records": 33,
+    "approx_unique_doctor_names": 33,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rajshahi",
+    "district": "Naogaon",
+    "canonical_chamber_records": 43,
+    "approx_unique_doctor_names": 42,
+    "hospital_clinic_nodes": 4,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rajshahi",
+    "district": "Bogura",
+    "canonical_chamber_records": 92,
+    "approx_unique_doctor_names": 91,
+    "hospital_clinic_nodes": 8,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Rajshahi",
+    "district": "Sirajganj",
+    "canonical_chamber_records": 36,
+    "approx_unique_doctor_names": 35,
+    "hospital_clinic_nodes": 11,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Manikganj",
+    "canonical_chamber_records": 17,
+    "approx_unique_doctor_names": 17,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Rajbari",
+    "canonical_chamber_records": 15,
+    "approx_unique_doctor_names": 15,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Tangail",
+    "canonical_chamber_records": 15,
+    "approx_unique_doctor_names": 15,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Dhaka",
+    "canonical_chamber_records": 990,
+    "approx_unique_doctor_names": 957,
+    "hospital_clinic_nodes": 26,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Narayanganj",
+    "canonical_chamber_records": 67,
+    "approx_unique_doctor_names": 67,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Gazipur",
+    "canonical_chamber_records": 23,
+    "approx_unique_doctor_names": 23,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Narsingdi",
+    "canonical_chamber_records": 27,
+    "approx_unique_doctor_names": 27,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Munshiganj",
+    "canonical_chamber_records": 13,
+    "approx_unique_doctor_names": 13,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Faridpur",
+    "canonical_chamber_records": 22,
+    "approx_unique_doctor_names": 22,
+    "hospital_clinic_nodes": 6,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Madaripur",
+    "canonical_chamber_records": 17,
+    "approx_unique_doctor_names": 17,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Shariatpur",
+    "canonical_chamber_records": 25,
+    "approx_unique_doctor_names": 25,
+    "hospital_clinic_nodes": 4,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Kishoreganj",
+    "canonical_chamber_records": 15,
+    "approx_unique_doctor_names": 15,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Dhaka",
+    "district": "Gopalganj",
+    "canonical_chamber_records": 16,
+    "approx_unique_doctor_names": 16,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Khulna",
+    "district": "Satkhira",
+    "canonical_chamber_records": 22,
+    "approx_unique_doctor_names": 22,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Khulna",
+    "district": "Meherpur",
+    "canonical_chamber_records": 13,
+    "approx_unique_doctor_names": 13,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Khulna",
+    "district": "Chuadanga",
+    "canonical_chamber_records": 12,
+    "approx_unique_doctor_names": 12,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Khulna",
+    "district": "Bagerhat",
+    "canonical_chamber_records": 15,
+    "approx_unique_doctor_names": 15,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Khulna",
+    "district": "Khulna",
+    "canonical_chamber_records": 193,
+    "approx_unique_doctor_names": 161,
+    "hospital_clinic_nodes": 13,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Khulna",
+    "district": "Jashore",
+    "canonical_chamber_records": 17,
+    "approx_unique_doctor_names": 17,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Khulna",
+    "district": "Narail",
+    "canonical_chamber_records": 13,
+    "approx_unique_doctor_names": 13,
+    "hospital_clinic_nodes": 2,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Khulna",
+    "district": "Kushtia",
+    "canonical_chamber_records": 12,
+    "approx_unique_doctor_names": 12,
+    "hospital_clinic_nodes": 1,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Khulna",
+    "district": "Magura",
+    "canonical_chamber_records": 23,
+    "approx_unique_doctor_names": 23,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  },
+  {
+    "division": "Khulna",
+    "district": "Jhenaidah",
+    "canonical_chamber_records": 36,
+    "approx_unique_doctor_names": 36,
+    "hospital_clinic_nodes": 3,
+    "coverage_status": "populated"
+  }
+]

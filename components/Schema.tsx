@@ -1,0 +1,3 @@
+import {isPublishedHref} from '../lib/publication';
+function releasedSchema(value:unknown):unknown{if(Array.isArray(value))return value.map(releasedSchema);if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).filter(([key,v])=>!(['url','item','@id'].includes(key)&&typeof v==='string'&&!isPublishedHref(v))).map(([k,v])=>[k,releasedSchema(v)]));return value;}
+export default function Schema({data}:{data:object}){return <script type="application/ld+json" dangerouslySetInnerHTML={{__html:JSON.stringify(releasedSchema({'@context':'https://schema.org',...data})).replace(/</g,'\\u003c')}}/>;}

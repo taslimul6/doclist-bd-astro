@@ -1,0 +1,34 @@
+{
+  "name": "doclist-bd-astro",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node --import tsx scripts/generate-search-index.ts && astro build && node scripts/finalize-astro.mjs",
+    "preview": "wrangler pages dev dist --port 4321",
+    "deploy": "wrangler pages deploy dist",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx scripts/test-astro.ts",
+    "test:browser": "node scripts/test-browser.mjs"
+  },
+  "dependencies": {
+    "astro": "5.18.2",
+    "@astrojs/cloudflare": "12.6.13",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "tsx": "4.20.6",
+    "wrangler": "4.75.0",
+    "@playwright/test": "1.58.2",
+    "cheerio": "1.2.0"
+  }
+}

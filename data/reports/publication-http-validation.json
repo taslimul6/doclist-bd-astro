@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "stages": [
+    "before first release",
+    "first 30 pages",
+    "all due pages"
+  ],
+  "requests": 65,
+  "checks": [
+    "old URLs",
+    "future 404/noindex/no-store",
+    "Bangla/English/legacy bn",
+    "all doctor profiles live",
+    "HTML links",
+    "uncached sitemap membership"
+  ]
+}

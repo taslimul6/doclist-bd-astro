@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "districtPagesAndFilters": [
+    "joypurhat",
+    "narayanganj"
+  ],
+  "bilingualProfilesLiveBeforeSchedule": true,
+  "myDocNoindexAndApi": true,
+  "specialSitemapUrls": 1000,
+  "newLocalImagesHttpChecked": 3
+}

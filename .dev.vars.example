@@ -1,6 +1,0 @@
-# Use the SAME Redis database as your current production site to retain counts.
-UPSTASH_REDIS_REST_URL=
-UPSTASH_REDIS_REST_TOKEN=
-# Existing KV_REST_API_URL / KV_REST_API_TOKEN aliases are also supported.
-# Optional schedule override; leave unset to preserve the existing start date.
-# DOCLIST_RELEASE_START=2026-10-18

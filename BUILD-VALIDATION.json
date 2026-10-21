@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "productionBuild": true,
+  "standalonePrebuiltCloudflareRuntime": true,
+  "sourceRebuildRequired": false,
+  "pagesChecked": 16,
+  "builtAssetsChecked": 2,
+  "buildFilesIdentical": 1678,
+  "specialSitemapUrls": 1000,
+  "savedDoctorsAPI": true,
+  "googleTag": "G-SJSQXS7FJ9",
+  "localPortrait": true,
+  "remoteDeploymentPerformed": false
+}

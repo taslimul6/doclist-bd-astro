@@ -1,6 +1,0 @@
-npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
-
-> doclist-bd@1.0.0 test:national-http
-> python3 scripts/test-national-http.py
-
-{'status': 'passed', 'requests': 36, 'newProfileAndDistrictSamplesPerLanguage': 8, 'missingOptionalFields': True, 'paginationAndFilters': True}

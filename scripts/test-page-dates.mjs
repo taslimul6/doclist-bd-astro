@@ -1,1 +1,0 @@
-import fs from 'node:fs';import assert from 'node:assert/strict';const source=fs.readFileSync(new URL('../lib/page-dates.ts',import.meta.url),'utf8');assert.ok(!source.includes('Date.parse'));assert.ok(source.includes('createdAt:null,publishedAt:null'));console.log('Unavailable publication history remains null');

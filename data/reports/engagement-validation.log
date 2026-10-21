@@ -1,6 +1,0 @@
-npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
-
-> doclist-bd@1.0.0 test:engagement
-> python3 scripts/test-engagement-http.py
-
-{"status": "passed", "checks": "shared love counts, one love per browser, concurrent duplicate love, distinct visitors, impression retry idempotency, concurrent impressions, invalid requests, origin protection and persistence across restart"}

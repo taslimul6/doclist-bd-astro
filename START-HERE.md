@@ -1,68 +1,64 @@
-# DocList BD — Prebuilt Cloudflare Pages deployment
+# DocList BD — Fixed prebuilt Cloudflare package
 
-এই ZIP ইতিমধ্যে production build করা। **আবার `npm install` বা `npm run build` করতে হবে না।**
+এই package-এ production build ইতিমধ্যে আছে। `npm run build` এখন সব prebuilt file যাচাই করে সফলভাবে শেষ হয়। Source compile করতে হয় না। Website-এর design, pages, data বা features পরিবর্তন করা হয়নি।
 
-`dist/` contains the compiled Astro server, browser JavaScript/CSS, routing configuration and all 1,638 local doctor portraits. Existing Bengali/English pages, SEO rules, sitemap, filters, saved doctors and Google tag are retained.
+## তোমার দেখানো বর্তমান dashboard: Workers project
 
-## Windows: সহজ পদ্ধতি
+তোমার URL-এ `/workers/services/view/doclist-bd-astro/` আছে। এটি Workers project। এই ZIP-এর root সেই project-এর জন্য configured:
 
-1. ZIP extract করো। Node.js 22 ইনস্টল থাকতে হবে।
-2. Extract করা folder-এর `DEPLOY-WINDOWS.cmd` চালাও।
-3. Browser খুললে তোমার Cloudflare account-এ login/authorize করো।
-4. `doclist-bd` Pages project থাকলে সেখানে deploy হবে। নতুন project তৈরি করার প্রশ্ন এলে Pages project তৈরি করো। Production branch `main` রাখো।
+| Setting | Value |
+| --- | --- |
+| Root directory | `/` |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
 
-If your existing **Pages** project has another name, change `doclist-bd` in `wrangler.jsonc`, `package.json` and `DEPLOY-WINDOWS.cmd` to that project name before running the script.
+GitHub repository-তে এই ZIP-এর **ভেতরের সব file/folder** আপলোড করো। ZIP file-টি একা repository-তে রাখবে না। `package.json`, `wrangler.jsonc` ও `dist` repository root-এ থাকতে হবে। তারপর Retry build করো।
 
-## Terminal দিয়ে deploy
+`main` entry point, static asset binding এবং `nodejs_compat` configuration এই package-এ দেওয়া আছে। Server code static assets হিসেবে প্রকাশ করা থেকে `.assetsignore` রক্ষা করে।
 
-ZIP extract করা folder-এ terminal খুলে চালাও:
+## Cloudflare Pages-এ deploy করতে চাইলে
+
+Windows-এ extract করে **`DEPLOY-PAGES-WINDOWS.cmd`** চালাও। Browser-এ Cloudflare login করার পর Pages deployment হবে। প্রয়োজন হলে `doclist-bd-astro` নামে নতুন Pages project তৈরি করতে বলবে।
+
+Terminal দিয়ে:
 
 ```bash
 npx --yes wrangler@4.75.0 login
-npx --yes wrangler@4.75.0 pages deploy dist --project-name doclist-bd --branch main
+npm run build
+npm run deploy:pages
 ```
 
-অথবা login করার পর `npm run deploy` চালাও। Source build করার প্রয়োজন নেই। Wrangler downloads its deployment tool on the first run, so internet access is required.
+এই command `pages` folder-এর Pages-specific config দিয়ে সম্পূর্ণ `dist` deploy করে। আলাদা Pages project-এর নাম ব্যবহার করলে `pages/wrangler.jsonc` এবং `package.json`-এর `deploy:pages` command-এ project name বদলাবে।
 
-Use **Cloudflare Pages** with this package. Keep `dist/_worker.js/`, `dist/_routes.json` and `wrangler.jsonc` intact. All directory pages are rendered by the compiled server; an `index.html` file is not required.
+Pages Git integration ব্যবহার করলে:
 
-## গুরুত্বপূর্ণ: ছবি ও server code একসঙ্গে deploy করো
+| Setting | Value |
+| --- | --- |
+| Project type | Pages |
+| Root directory | `pages` |
+| Build command | `npm run build` |
+| Build output directory | `../dist` |
 
-Use the Wrangler command above. Cloudflare dashboard drag-and-drop has a 1,000-file upload limit, while this package contains more than 1,000 local assets. Uploading only some files would leave doctor portraits missing. Wrangler deploys the complete folder and compiled multi-module server together.
+Workers এবং Pages-এর config আলাদা রাখা হয়েছে। তোমার বর্তমান Workers project-এর settings বদলানোর প্রয়োজন নেই; Pages-এ যেতে হলে উপরের Pages deployment পদ্ধতি ব্যবহার করো।
 
-Do not upload this ZIP as a Worker script, and do not select individual files from `dist`.
+## Love/view count
 
-## Love/view count আগের মতো রাখতে
-
-Cloudflare Pages project-এর Settings → Variables and Secrets-এ আগের production-এর **একই values** যোগ করো:
+আগের production-এর একই secrets target project-এ যোগ করো:
 
 ```text
 UPSTASH_REDIS_REST_URL
 UPSTASH_REDIS_REST_TOKEN
 ```
 
-`KV_REST_API_URL` / `KV_REST_API_TOKEN` aliases are also supported. Existing Redis keys, doctor IDs and visitor cookie names are unchanged. No private credentials are included in this ZIP.
+Existing `KV_REST_API_URL` / `KV_REST_API_TOKEN` aliases also work. Without Redis secrets or an initialized D1 `DB` binding, counters report storage unavailable. Saved doctors remain in browser storage for 365 days and do not need Redis. Existing Redis keys, doctor IDs and visitor cookie are unchanged. A new D1 database does not automatically import existing Redis totals.
 
-After changing secrets, redeploy using the same command. Without Redis credentials or an initialized D1 binding, the counter API reports storage unavailable. Saved doctors do not need Redis: they remain in the browser for 365 days.
+## Preserved build
 
-If using Cloudflare D1 instead of Redis, configure binding `DB` in `wrangler.jsonc` and initialize it with the included `0001_engagement.sql`. A new D1 database does not automatically import your old Redis totals.
+- All Bengali/English directory routes and original publication schedule.
+- All 1,638 local portraits, CSS and JavaScript.
+- Filters, pagination, saved doctors, calls, sharing, FAQ and metadata.
+- Original sitemap behavior, including the exact 1,000 URLs in `100.xml`.
+- Google Analytics `G-SJSQXS7FJ9`.
+- Canonical domain remains `https://doclist-bd.com`.
 
-## Preview without deployment
-
-```bash
-npx --yes wrangler@4.75.0 pages dev dist --port 4321
-```
-
-Then open `http://localhost:4321`. Deployment scripts require Cloudflare login; they do not contain your login credentials.
-
-## After deployment
-
-- Open the generated `*.pages.dev` URL and check Bengali/English pages.
-- Add your existing `doclist-bd.com` custom domain through Pages → Custom domains.
-- Google Analytics remains `G-SJSQXS7FJ9`; canonical URLs remain `https://doclist-bd.com`.
-- Keeping the same HTTPS custom domain preserves access to existing browser saved lists and visitor cookies.
-- The original publication schedule and SEO indexing decisions remain unchanged.
-
-This archive contains deployable build output, not the editable source project. Keep the previous source ZIP for future edits and rebuilds. No public deployment was performed when preparing this ZIP.
-
-Reference: https://developers.cloudflare.com/pages/get-started/direct-upload/
+Keep the editable source ZIP for future code changes. This ZIP contains prebuilt output and deployment configuration. No Cloudflare account credentials are included, and no public deployment was performed while preparing it.

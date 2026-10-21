@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "buildCommand": "npm run build",
+  "workersDeployDryRun": "passed",
+  "targets": [
+    {
+      "target": "Workers",
+      "pagesChecked": 16,
+      "assetsChecked": 2,
+      "localPortrait": true,
+      "savedDoctorsAPI": true,
+      "googleTag": true,
+      "specialSitemapUrls": 1000,
+      "serverCodeNotPublic": true,
+      "status": "passed"
+    },
+    {
+      "target": "Pages",
+      "pagesChecked": 16,
+      "assetsChecked": 2,
+      "localPortrait": true,
+      "savedDoctorsAPI": true,
+      "googleTag": true,
+      "specialSitemapUrls": 1000,
+      "status": "passed"
+    }
+  ],
+  "publicDeploymentPerformed": false,
+  "rootBuildCommand": "npm run build",
+  "rootDeployCommand": "npx wrangler deploy"
+}

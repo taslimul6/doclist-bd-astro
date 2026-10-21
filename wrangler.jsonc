@@ -1,9 +1,17 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "doclist-bd",
-  "pages_build_output_dir": "./dist",
+  "name": "doclist-bd-astro",
+  "main": "dist/_worker.js/index.js",
   "compatibility_date": "2026-10-20",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
   "vars": {
     "NEXT_PUBLIC_SITE_URL": "https://doclist-bd.com"
   }

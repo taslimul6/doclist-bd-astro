@@ -1,0 +1,29 @@
+---
+import HomeView from '../views/HomeView.astro';
+import ListingView from '../views/ListingView.astro';
+import SpecialtiesView from '../views/SpecialtiesView.astro';
+import LocationsView from '../views/LocationsView.astro';
+import HospitalsView from '../views/HospitalsView.astro';
+import DoctorView from '../views/DoctorView.astro';
+import HospitalView from '../views/HospitalView.astro';
+import EssentialView from '../views/EssentialView.astro';
+import MyDocView from '../views/MyDocView.astro';
+import {allRoutes} from '../../lib/routes';
+import type {EssentialPageKey} from '../../lib/essential-pages';
+import type {RouteProps} from '../../lib/routes';
+
+// Single catch-all route: Bengali at the root, English under /en. Only released pages are generated.
+export function getStaticPaths(){return allRoutes().map(r=>({params:{path:r.path},props:r.props}));}
+const props=Astro.props as RouteProps;
+const {kind}=props;
+const listing=['doctors','location','specialty','specialtyLocation','hospitalSection'].includes(kind);
+---
+{kind==='home'&&<HomeView lang={props.lang}/>}
+{listing&&<ListingView {...props}/>}
+{kind==='specialties'&&<SpecialtiesView lang={props.lang}/>}
+{kind==='locations'&&<LocationsView lang={props.lang}/>}
+{kind==='hospitals'&&<HospitalsView lang={props.lang} page={props.page}/>}
+{kind==='doctor'&&<DoctorView lang={props.lang} a={props.a}/>}
+{kind==='hospital'&&<HospitalView lang={props.lang} a={props.a}/>}
+{kind==='essential'&&<EssentialView lang={props.lang} page={props.a as EssentialPageKey}/>}
+{kind==='myDoc'&&<MyDocView lang={props.lang}/>}

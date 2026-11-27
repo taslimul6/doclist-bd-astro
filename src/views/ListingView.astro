@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ListingPage from '../components/ListingPage.astro';
+import {metadata} from '../../lib/seo';
+import {runListing} from '../../lib/listing';
+import {doctorsContext,locationContext,specialtyContext,specialtyLocationContext,hospitalSectionContext} from '../../lib/page-contexts';
+import type {RouteProps} from '../../lib/routes';
+
+// One view for every doctor roster: /doctors, location, specialty, specialty x location, hospital sections.
+const {lang,kind,a,b,page=1}=Astro.props as RouteProps;
+const c=kind==='doctors'?doctorsContext(lang):kind==='location'?locationContext(a!,lang):kind==='specialty'?specialtyContext(a!,lang):kind==='specialtyLocation'?specialtyLocationContext(a!,b!,lang):hospitalSectionContext(a!,b!,lang);
+if(!c)throw new Error('No listing context for '+kind+' '+a+' '+b);
+const query={page:String(page)};
+const {result,baseCount}=runListing(c,query);
+const meta=metadata(c.title,c.description,c.path.replace(/^\/en(?=\/|$)/,'')||'/',query,lang);
+---
+<Layout lang={lang} meta={meta}><ListingPage lang={lang} context={c} query={query} result={result} baseCount={baseCount}/></Layout>

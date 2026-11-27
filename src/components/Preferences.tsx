@@ -3,7 +3,7 @@ import {useEffect,useState} from 'react';
 
 import {type Locale,t} from '../../lib/i18n';
 
-export default function Preferences({lang,pathname:initialPath}:{lang:Locale;pathname?:string}){
+export default function Preferences({lang,pathname:initialPath,enAvailable=true}:{lang:Locale;pathname?:string;enAvailable?:boolean}){
   // `initialPath` is the requested URL path from the server; the browser value takes over after mount.
   const [pathname,setPathname]=useState(initialPath||(lang==='bn'?'/':'/en'));
   const [theme,setTheme]=useState('light');
@@ -26,5 +26,5 @@ export default function Preferences({lang,pathname:initialPath}:{lang:Locale;pat
     try{localStorage.setItem('doclist-theme',next);}catch{}
   }
 
-  return <div className="preferences"><a className="language-switch" href={switchPath+query} hrefLang={other} lang={other} aria-label={lang==='bn'?'Switch to English':'বাংলায় দেখুন'} onClick={()=>{try{localStorage.setItem('doclist-language',other);}catch{}}}>{lang==='bn'?'English':'বাংলা'}</a><button className="theme-toggle" type="button" onClick={toggle} aria-pressed={theme==='dark'} aria-label={t(lang,theme==='dark'?'Switch to light mode':'Switch to dark mode')} title={t(lang,theme==='dark'?'Light mode':'Dark mode')}><span aria-hidden="true">{theme==='dark'?'☀':'☾'}</span><span className="theme-label">{t(lang,theme==='dark'?'Light mode':'Dark mode')}</span></button></div>;
+  return <div className="preferences">{(lang==='en'||enAvailable)&&<a className="language-switch" href={switchPath+query} hrefLang={other} lang={other} aria-label={lang==='bn'?'Switch to English':'বাংলায় দেখুন'} onClick={()=>{try{localStorage.setItem('doclist-language',other);}catch{}}}>{lang==='bn'?'English':'বাংলা'}</a>}<button className="theme-toggle" type="button" onClick={toggle} aria-pressed={theme==='dark'} aria-label={t(lang,theme==='dark'?'Switch to light mode':'Switch to dark mode')} title={t(lang,theme==='dark'?'Light mode':'Dark mode')}><span aria-hidden="true">{theme==='dark'?'☀':'☾'}</span><span className="theme-label">{t(lang,theme==='dark'?'Light mode':'Dark mode')}</span></button></div>;
 }

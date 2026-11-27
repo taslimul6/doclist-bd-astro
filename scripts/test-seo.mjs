@@ -23,7 +23,7 @@ for(const r of records){
 }
 for(const q of [{q:'kidney'},{division:'dhaka-division'},{sort:'name'},{page:'0'},{page:'abc'},{page:'2',gender:'Female'}])assert.equal(seo.metadata('Title','Description','/doctors',q).robots.index,false);
 const paginated=seo.metadata('Title','Description','/doctors',{page:'2'});
-assert.equal(paginated.alternates.canonical,'https://doclist-bd.com/doctors?page=2');
+assert.equal(paginated.alternates.canonical,'https://doclist-bd.com/doctors/page/2');
 assert.equal(paginated.robots.index,true);
 const counts={};for(const r of records){const key=r.path.startsWith('/doctor/')?'Doctor profiles':r.path.startsWith('/hospital/')?'Hospitals and hospital directories':r.path.startsWith('/doctors/')?'Location and specialty-location directories':r.path.startsWith('/specialty/')?'Specialty directories':'Main hubs';counts[key]??={total:0,indexable:0,excluded:0};counts[key].total++;counts[key][r.index?'indexable':'excluded']++;}
 const report={policyVersion:1,basePages:records.length,indexableBasePages:included.length,sitemapUrls:included.length,excludedUrls:records.length*2-included.length,counts,notes:['Only Bengali URLs are indexed and submitted; /en pages are noindex,follow.','Thresholds are editorial launch settings, not Google requirements.','Excluded pages stay accessible. Thin pages use noindex,follow; equivalent rosters use canonical consolidation.','Pagination is self-canonical and crawlable but not submitted in sitemap.','Synthetic historical dates are omitted from metadata and structured data.'],pages:records};

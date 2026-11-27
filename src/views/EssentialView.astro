@@ -1,0 +1,10 @@
+---
+import type {Locale} from '../../lib/i18n';
+import Layout from '../layouts/Layout.astro';
+import EssentialPage from '../components/EssentialPage.astro';
+import type {EssentialPageKey} from '../../lib/essential-pages';
+import {essentialMetadata} from '../../lib/essential-pages';
+
+const {lang,page}=Astro.props as {lang:Locale;page:EssentialPageKey};
+---
+<Layout lang={lang} meta={essentialMetadata(page,lang)}><EssentialPage page={page} lang={lang}/></Layout>

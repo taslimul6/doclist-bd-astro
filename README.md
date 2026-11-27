@@ -16,9 +16,9 @@ See [PUBLICATION_SCHEDULE.md](PUBLICATION_SCHEDULE.md). Old routes remain live; 
 
 Read [IMPORT_MAPPING.md](IMPORT_MAPPING.md) for the reusable importer, field adapter, identity policy, validation and reports. Current data is already integrated. Run `npm ci` and `npm run dev` to start locally.
 
-# Doclist Bd — Astro Doctor Directory
+# Doclist Bd — Static Astro Doctor Directory
 
-Bilingual (Bengali/English) Bangladesh doctor directory on **Astro 7** (server output) deployed to **Cloudflare Workers** with static assets. Interactive widgets (save, love/views, theme/language switch, geography selects, My Doc) are React islands; everything else is `.astro`.
+Bilingual (Bengali/English) Bangladesh doctor directory, built as a **fully static Astro 7 site** and served as plain static assets on Cloudflare (no Worker, so free-plan request/CPU limits do not apply). Interactive widgets (save, share, theme/language switch, search filters, My Doc) are React islands.
 
 ## Start
 
@@ -26,19 +26,11 @@ Requires Node.js 22.23+.
 
 ```bash
 npm ci
-npm run dev            # http://localhost:4321
-npm run build          # -> dist/ (dist/server worker + dist/client assets)
-npm test               # node test scripts
-npm run check          # astro check (types)
+npm run dev        # http://localhost:4321
+npm run build      # -> dist/ (about 9-13 minutes)
+npm test
 ```
 
-## Deploy (Cloudflare)
+## Deploy
 
-```bash
-npx wrangler d1 create doclist-engagement      # once; paste database_id into wrangler.jsonc
-npm run db:migrate                             # creates the engagement tables (migrations/)
-npm run deploy                                 # astro build && wrangler deploy
-```
-
-Configuration lives in `wrangler.jsonc` (`PUBLIC_SITE_URL`, optional `DOCLIST_RELEASE_START`, D1 binding `DB`). Optionally set `UPSTASH_REDIS_REST_URL`/`UPSTASH_REDIS_REST_TOKEN` as secrets to use Redis for engagement counters instead of D1.
-
+`.github/workflows/deploy.yml` builds and runs `wrangler deploy` on every push to `main` and daily at 00:00 Asia/Dhaka (that rebuild is what releases the day's scheduled pages). Add repository secrets `CLOUDFLARE_API_TOKEN` (Workers Scripts: Edit) and `CLOUDFLARE_ACCOUNT_ID`. Disconnect the Cloudflare Git integration so the site is not built twice.

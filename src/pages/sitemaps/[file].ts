@@ -7,6 +7,11 @@ import {localizedPath} from '../../../lib/i18n';
 
 const headers={'Content-Type':'application/xml; charset=utf-8','Cache-Control':'no-store'};
 
+export function getStaticPaths(){
+  const count=Math.ceil(indexablePaths().length*indexedLocales.length/sitemapPageSize);
+  return [...Array.from({length:count},(_,i)=>i),100].map(i=>({params:{file:i+'.xml'}}));
+}
+
 export const GET:APIRoute=({params})=>{
   const file=params.file||'';
   if(!/^(0|[1-9]\d*)\.xml$/.test(file))return new Response('Not found',{status:404});

@@ -18,9 +18,12 @@ export default function MyDoctors({lang}: {lang: Locale}) {
         if (localStorage.getItem(savedDoctorsKey) !== clean) localStorage.setItem(savedDoctorsKey, clean);
         setLoading(true); setError('');
         if (!items.length) { setDocs([]); setLoading(false); return; }
-        const response = await fetch('/api/my-doc', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(items.map(x => x.id)), signal});
+        const response = await fetch('/search/index.json', {signal});
         if (!response.ok) throw new Error();
-        const data: Doc[] = await response.json();
+        // Static site: saved ids are looked up in the shared search index (merged duplicates list their old ids in `al`).
+        const index: {rows: {i: string; al?: string[]; n: string; s: string; im: string | null; q: string | null; rs: string[]; ch: {p: string}[]}[]} = await response.json();
+        const data: Doc[] = [];
+        for (const r of index.rows) for (const id of [r.i, ...(r.al || [])]) data.push({id, name: r.n, slug: r.s, image: r.im, qualifications: r.q, specialties: r.rs, phone: r.ch.find(c => c.p)?.p || null});
         if (alive && !signal.aborted) { const byId = new Map(data.map(d => [d.id, d])); setDocs(items.flatMap(x => byId.has(x.id) ? [byId.get(x.id)!] : [])); setLoading(false); }
       } catch {
         if (alive && !signal.aborted) { setError(lang === 'en' ? 'Could not load your saved doctors. Allow browser storage and try again.' : 'তালিকা লোড হয়নি। ব্রাউজারের স্টোরেজ চালু রেখে আবার চেষ্টা করুন।'); setLoading(false); }

@@ -1,10 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import MyDoctors from '../../components/MyDoctors';
-import {getLocale} from '../../../lib/locale';
+import type {Locale} from '../../lib/i18n';
+import Layout from '../layouts/Layout.astro';
+import MyDoctors from '../components/MyDoctors';
 
-const lang=getLocale(Astro.params.lang);
-if(!lang)return Astro.rewrite('/404');
+const {lang}=Astro.props as {lang:Locale};
 const title=lang==='en'?'Saved Docs':'আমার ডাক্তার';
 const meta={title,description:undefined,robots:{index:false,follow:true}};
 ---

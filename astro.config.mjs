@@ -1,14 +1,12 @@
 import {defineConfig} from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
 import react from '@astrojs/react';
 
-// Server-rendered on Cloudflare: publication scheduling and engagement counters need per-request logic.
+// Fully static: every page is built to HTML. The daily release schedule is applied at build time
+// (a scheduled GitHub Action rebuilds at 00:00 Asia/Dhaka), so no Worker is needed.
 export default defineConfig({
-  output: 'server',
-  adapter: cloudflare({imageService: 'passthrough'}),
+  output: 'static',
   integrations: [react()],
   trailingSlash: 'never',
   build: {format: 'file'},
-  security: {checkOrigin: false}, // engagement route does its own origin check
   devToolbar: {enabled: false},
 });

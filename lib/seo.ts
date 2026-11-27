@@ -11,7 +11,7 @@ export const absolute=(path:string)=>siteUrl+path;
 export function metadata(title:string,description:string,path:string,q:Query={},lang:Locale='bn'):PageMeta {
  const utility=Object.keys(q).some(k=>k!=='page'&&!!value(q,k));
  const p=value(q,'page'), validPage=/^[1-9]\d*$/.test(p)&&Number.isSafeInteger(Number(p));
- const page=validPage&&Number(p)>1?'?page='+Number(p):'';
+ const page=validPage&&Number(p)>1?'/page/'+Number(p):'';
  const suffix=page?pick(lang,' — Page ',' — পৃষ্ঠা ')+num(lang,Number(p)):'';
  const base=normalizePath(path), decision=pageDecision(base);
  // Duplicate rosters consolidate to an equivalent page; thin pages remain self-canonical and noindex.

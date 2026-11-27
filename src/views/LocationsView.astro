@@ -1,15 +1,14 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import PageDates from '../../components/PageDates.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import LocationCard from '../../components/LocationCard.astro';
-import {locations} from '../../../lib/directory';
-import {metadata} from '../../../lib/seo';
-import {getLocale} from '../../../lib/locale';
-import {t,pick} from '../../../lib/i18n';
+import type {Locale} from '../../lib/i18n';
+import Layout from '../layouts/Layout.astro';
+import PageDates from '../components/PageDates.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import LocationCard from '../components/LocationCard.astro';
+import {locations} from '../../lib/directory';
+import {metadata} from '../../lib/seo';
+import {t,pick} from '../../lib/i18n';
 
-const lang=getLocale(Astro.params.lang);
-if(!lang)return Astro.rewrite('/404');
+const {lang}=Astro.props as {lang:Locale};
 const meta=metadata(pick(lang,'Doctors by District, Division and Area','জেলা, বিভাগ ও এলাকা অনুযায়ী ডাক্তার'),pick(lang,'Explore Bangladesh doctor listings by district, division and local area.','জেলা, বিভাগ ও স্থানীয় এলাকা অনুযায়ী বাংলাদেশের ডাক্তার তালিকা দেখুন।'),'/locations',{},lang);
 const kinds=['district','division','area'];
 ---

@@ -8,11 +8,11 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "start": "wrangler dev",
+    "build": "astro build && node scripts/postbuild.mjs",
+    "start": "astro preview",
     "typecheck": "astro check",
     "data:normalize": "python3 scripts/import-national.py",
-    "test": "node scripts/build-doctor-merges.mjs --check && node scripts/build-index-rollout.mjs --check && node scripts/test-index-rollout.mjs && node scripts/test-directory.mjs && node scripts/test-preferences.mjs && node scripts/test-interactions.mjs && node scripts/test-publication.mjs",
+    "test": "node scripts/build-doctor-merges.mjs --check && node scripts/build-index-rollout.mjs --check && node scripts/test-index-rollout.mjs && node scripts/test-directory.mjs && node scripts/test-preferences.mjs && node scripts/test-interactions.mjs && node scripts/test-publication.mjs && node scripts/test-my-doc-ui.mjs",
     "test:http": "python3 scripts/smoke-test.py",
     "test:engagement": "python3 scripts/test-engagement-http.py",
     "test:dates": "node scripts/test-page-dates.mjs",
@@ -29,12 +29,10 @@
     "test:rollout": "node scripts/test-index-rollout.mjs",
     "preview": "astro preview",
     "check": "astro check",
-    "deploy": "astro build && wrangler deploy",
-    "db:migrate": "wrangler d1 migrations apply doclist-engagement --remote",
-    "db:migrate:local": "wrangler d1 migrations apply doclist-engagement --local"
+    "deploy": "npm run build && wrangler deploy",
+    "test:search": "node scripts/test-search.mjs"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^14.4.9",
     "@astrojs/react": "^7.1.9",
     "@types/react-dom": "^19.3.0",
     "astro": "^7.4.13",

@@ -58,6 +58,8 @@ export const specialtyLocation=combinations.specialtyLocation as Record<string,s
 export const hospitalSpecialty=combinations.hospitalSpecialty as Record<string,string[]>;
 const aliases:Record<string,string>={cardiologist:'cardiology',nephrologist:'nephrology','kidney-doctor':'nephrology',neurologist:'neurology',gynecologist:'gynecology',gynaecologist:'gynecology',pediatrician:'pediatrics',dermatologist:'dermatology',urologist:'urology','medicine-specialist':'medicine',orthopaedics:'orthopedics'};
 const locationAliases:Record<string,string>={chittagong:'chattogram',barisal:'barishal',bogra:'bogura'};
+export const specialtyAliases=aliases,locationAliasesMap=locationAliases;
+export const doctorRedirectEntries=()=>[...redirectSlugs.entries()];
 export const resolveSpecialtySlug=(slug:string)=>aliases[slug]||slug;
 export const resolveLocationSlug=(slug:string)=>locationAliases[slug]||slug;
 export const getDoctorBySlug=(slug:string)=>bySlug.get(slug);
@@ -84,8 +86,10 @@ export const getRelatedLocations=(s?:string,l?:string)=>locations.filter(x=>isPu
 export const getRelatedSpecialties=(l?:string,s?:string,h?:string)=>specialties.filter(x=>isPublished(h?'/hospital/'+h+'/'+x.slug:l?'/doctors/'+x.slug+'/'+l:'/specialty/'+x.slug)&&x.slug!==s&&(!l||!!specialtyLocation[x.slug+'/'+l])&&(!h||!!hospitalSpecialty[h+'/'+x.slug])).slice(0,8);
 export const value=(q:Query,k:string)=>Array.isArray(q[k])?q[k]![0]:q[k]||'';
 export const pageSize=24;
+export const searchTextOf=(id:string)=>searchIndex.get(id)||'';
 const searchIndex=new Map(doctors.map(d=>[d.id,[d.name,d.qualifications,d.designation,...d.rawSpecialties,...d.specialtySlugs.map(s=>specialtyMap.get(s)?.name||''),...d.chambers.map(c=>c.name+' '+c.address),...d.locationSlugs.map(l=>locationMap.get(l)?.name||''),...d.specialtySlugs.map(s=>specialty('bn',specialtyMap.get(s)?.name||'')),...d.locationSlugs.map(l=>place('bn',locationMap.get(l)?.name||'')),...d.chambers.map(c=>provider('bn',c.name)+' '+address('bn',c.address)),...d.rawSpecialties.map(s=>medicalText('bn',s))].join(' ').toLocaleLowerCase()]));
 type Relation={specialty:string;hospital:string;locations:string[]};
+export const relationsOf=(id:string)=>relationsFor(id);
 const relationsFor=(id:string)=>[id,...(aliasesOf.get(id)||[]).map(x=>x.id)].flatMap(x=>(combinations.relations as Record<string,Relation[]>)[x]||[]);
 export function searchDoctors(ids:string[]|undefined,q:Query) {
  let result=ids?doctorsFromIds(ids):doctors.filter(d=>isPublished('/doctor/'+d.slug)).sort((a,b)=>Number(!!b.featured)-Number(!!a.featured));

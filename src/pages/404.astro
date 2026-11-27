@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import {t,localizedPath} from '../../lib/i18n';
 
-const lang=/^\/en(\/|$)/.test(Astro.locals.originalPath||Astro.url.pathname)?'en':'bn';
+const lang='bn' as const; // static 404.html is shared by both languages
 Astro.response.status=404;
 const meta={title:t(lang,'This directory page was not found'),robots:{index:false,follow:true}};
 ---

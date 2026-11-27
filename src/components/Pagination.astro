@@ -4,7 +4,7 @@ import {value} from '../../lib/directory';
 import type {Query} from '../../lib/types';
 import {type Locale,t,pick,num} from '../../lib/i18n';
 const {path,query,page,pages,lang}=Astro.props as {path:string;query:Query;page:number;pages:number;lang:Locale};
-function queryUrl(p:number){const params=new URLSearchParams();for(const k of Object.keys(query)){const v=value(query,k);if(k!=='page'&&v)params.set(k,v);}if(p>1)params.set('page',String(p));return path+(params.size?'?'+params.toString():'');}
+function queryUrl(p:number){const params=new URLSearchParams();for(const k of Object.keys(query)){const v=value(query,k);if(k!=='page'&&v)params.set(k,v);}return path+(p>1?'/page/'+p:'')+(params.size?'?'+params.toString():'');}
 const visible=[...new Set([1,page-1,page,page+1,pages])].filter(n=>n>0&&n<=pages).sort((a,b)=>a-b);
 ---
 {pages>1&&<nav class="pagination" aria-label={t(lang,'Pagination')}>{page>1&&<ReleaseLink href={queryUrl(page-1)} rel="prev" aria-label={t(lang,'Previous page')}>‹</ReleaseLink>}{visible.map((n,i)=><span>{i>0&&n-visible[i-1]>1&&<span class="ellipsis">…</span>}<ReleaseLink href={queryUrl(n)} class={page===n?'active':''} aria-current={page===n?'page':undefined} aria-label={pick(lang,'Page ','পৃষ্ঠা ')+num(lang,n)}>{num(lang,n)}</ReleaseLink></span>)}{page<pages&&<ReleaseLink href={queryUrl(page+1)} rel="next" aria-label={t(lang,'Next page')}>›</ReleaseLink>}</nav>}

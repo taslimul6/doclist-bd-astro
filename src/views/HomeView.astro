@@ -1,22 +1,21 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ReleaseLink from '../../components/ReleaseLink.astro';
-import PageDates from '../../components/PageDates.astro';
-import SearchBar from '../../components/SearchBar.astro';
-import DoctorCard from '../../components/DoctorCard.astro';
-import HospitalCard from '../../components/HospitalCard.astro';
-import SpecialtyCard from '../../components/SpecialtyCard.astro';
-import LocationCard from '../../components/LocationCard.astro';
-import FAQ from '../../components/FAQ.astro';
-import Schema from '../../components/Schema.astro';
-import {doctors,hospitals,specialties,locations,specialtyLocation,getSpecialtyBySlug,getLocationBySlug} from '../../../lib/directory';
-import audit from '../../../data/audit.json';
-import {absolute,siteName,metadata} from '../../../lib/seo';
-import {getLocale} from '../../../lib/locale';
-import {t,pick,num,localizedPath,place,specialtyLocationTitle} from '../../../lib/i18n';
+import type {Locale} from '../../lib/i18n';
+import Layout from '../layouts/Layout.astro';
+import ReleaseLink from '../components/ReleaseLink.astro';
+import PageDates from '../components/PageDates.astro';
+import SearchBar from '../components/SearchBar.astro';
+import DoctorCard from '../components/DoctorCard.astro';
+import HospitalCard from '../components/HospitalCard.astro';
+import SpecialtyCard from '../components/SpecialtyCard.astro';
+import LocationCard from '../components/LocationCard.astro';
+import FAQ from '../components/FAQ.astro';
+import Schema from '../components/Schema.astro';
+import {doctors,hospitals,specialties,locations,specialtyLocation,getSpecialtyBySlug,getLocationBySlug} from '../../lib/directory';
+import audit from '../../data/audit.json';
+import {absolute,siteName,metadata} from '../../lib/seo';
+import {t,pick,num,localizedPath,place,specialtyLocationTitle} from '../../lib/i18n';
 
-const lang=getLocale(Astro.params.lang);
-if(!lang)return Astro.rewrite('/404');
+const {lang}=Astro.props as {lang:Locale};
 const url=(p:string)=>localizedPath(lang,p);
 const districts=locations.filter(l=>l.kind==='district');
 const popular=['cardiology/dhaka','nephrology/dhaka','neurology/rajshahi','gynecology/chattogram'].filter(k=>specialtyLocation[k]);

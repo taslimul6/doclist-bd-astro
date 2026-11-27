@@ -1,9 +1,13 @@
 ---
 import type {HTMLAttributes} from 'astro/types';
 import {isPublishedHref} from '../../lib/publication';
+import {isEnglishBase} from '../../lib/routes';
 // A link to a page that is not released yet renders as plain text, so unreleased URLs never leak.
 type Props=HTMLAttributes<'a'>;
 const {href,...props}=Astro.props;
-const hidden=!!href&&!isPublishedHref(String(href));
+// English pages only exist for the main sections; links elsewhere fall back to the Bengali page.
+let target=href?String(href):href;
+if(target&&/^\/en\//.test(target)){const base=target.split(/[?#]/)[0].replace(/\/page\/\d+$/,'').replace(/^\/en/,'')||'/';if(!isEnglishBase(base))target=target.replace(/^\/en/,'');}
+const hidden=!!target&&!isPublishedHref(String(target));
 ---
-{hidden?<span class={props.class} lang={props.lang}><slot/></span>:<a {...props} href={href}><slot/></a>}
+{hidden?<span class={props.class} lang={props.lang}><slot/></span>:<a {...props} href={target}><slot/></a>}

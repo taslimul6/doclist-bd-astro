@@ -4,34 +4,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Doclist Bd: a bilingual (Bengali/English) Bangladesh doctor directory on Astro 7 (SSR) + React islands, deployed to Cloudflare Workers (`wrangler.jsonc`). Node >= 22.23 (`.nvmrc`). Many `*.md` files in the root (IMPORT_MAPPING, PUBLICATION_SCHEDULE, ENGAGEMENT_SETUP, SEO_REPORT, …) are older reports/runbooks written during the Next.js era — the data/SEO/publication rules still apply, but framework and hosting details in them (Next, Vercel, Upstash-only) are outdated.
+Doclist Bd: a bilingual (Bengali/English) Bangladesh doctor directory, a **fully static Astro 7 site** (React islands for interactivity) served as plain static assets on Cloudflare (no Worker script). Node >= 22.23 (`.nvmrc`). Many `*.md` files in the root (IMPORT_MAPPING, PUBLICATION_SCHEDULE, SEO_REPORT, …) are older reports from the Next.js/SSR eras — data/SEO/publication rules still apply, but framework and hosting details in them (Next, Vercel, Worker, engagement counters) are outdated.
 
 ## Commands
 
 ```bash
 npm ci
-npm run dev                    # astro dev, http://localhost:4321
+npm run dev                    # astro dev, http://localhost:4321 (builds pages on demand)
 npm run check                  # astro check (typecheck)
-npm run build                  # astro build -> dist/server (worker) + dist/client (assets)
+npm run build                  # astro build + scripts/postbuild.mjs -> dist/ (~9-13 min, 10-15k files)
 npm test                       # node test scripts: directory, preferences, interactions, publication
-npm run deploy                 # build + wrangler deploy
-npm run db:migrate             # apply migrations/ to the remote D1 (db:migrate:local for local)
+npm run test:search            # after a build: in-browser filterRows == server searchDoctors
+npm run deploy                 # build + wrangler deploy (static assets only)
 ```
 
-- No linter or test framework: each test is a standalone script (`node scripts/test-seo.mjs`, `test:dates`, …). The `*.py` HTTP scripts (`smoke-test.py`, `test-engagement-http.py`, …) still spawn `next start` and need adapting to a running Astro server before use.
-- `astro dev` needs the workerd runtime; if it crashes on your machine, verify with a temporary `@astrojs/node` build instead.
+- No linter or test framework: each test is a standalone script. The `*.py` HTTP scripts still spawn `next start` and need adapting (`astro preview`) before use.
 - Data import: `npm run data:import` (see IMPORT_MAPPING.md). `npm run schedule:refresh` regenerates the release queue.
 
 ## Architecture
 
-**Data is static JSON** (`data/*.json`, produced by the Python importer) loaded at module scope in `lib/directory.ts` (all lookup/query helpers). It is bundled into the worker (~2.2 MB gzipped). Server-side only; never import it in an island. Portraits: `data/doctor-images.json` → `public/assets/doctors`. IDs/slugs/chamber IDs are stable public contracts.
+**Static output.** `astro.config.mjs` is `output: 'static'`. Every page is generated at build time from `data/*.json` (loaded in `lib/directory.ts`; the data never reaches the browser except through `/search/index.json`). Hosting limits that shape the design: Cloudflare free plan = 20,000 files per deployment, so `postbuild.mjs` fails the build above that.
 
-**Routing / i18n.** Pages live under `src/pages/[lang]/…` (`bn` | `en`). `src/middleware.ts` rewrites unprefixed Bengali paths (`/doctors/…`) to `/bn/…`, 301s `/bn/…` to the unprefixed path, and 404s unknown `[lang]` values (`getLocale()` returns null → `Astro.rewrite('/404')`). Use `localizedPath()`/`pick()` from `lib/i18n.ts`. Page contexts for listing pages are in `lib/page-contexts.ts`; `lib/listing.ts` runs the search (invalid page → 404).
+**Routing.** One catch-all route, `src/pages/[...path].astro`, whose `getStaticPaths` is `allRoutes()` in `lib/routes.ts`; it dispatches on `kind` to `src/views/*.astro` (Home, Listing, Specialties, Locations, Hospitals, Doctor, Hospital, Essential, MyDoc). Bengali is at the root, English under `/en` — but English is built **only** for the main pages (`isEnglishBase`: home, specialties, locations, hospitals, doctors list, my-doc, essential pages). `ReleaseLink.astro` rewrites other `/en/...` links to the Bengali page and `_redirects` sends deep `/en/doctor|hospital|specialty/*` to Bengali. Listing pagination is `/path/page/N` (old `?page=N` URLs are redirected client-side in `Layout.astro`). Page contexts: `lib/page-contexts.ts`; roster search for each static page: `lib/listing.ts`.
 
-**Publication scheduling.** `src/middleware.ts` returns 404 + `Retry-After` for unreleased pages (`lib/publication.ts`, `data/release-schedule.json`, `DOCLIST_RELEASE_START`). Doctor profiles, `data/live-geography-pages.json` and `data/indexed-coverage.json` paths are always live. Anything that links to pages must go through `ReleaseLink.astro` / `isPublished*` / `doctorsFromIds`. Never compute release state at module load.
+**Publication scheduling at build time.** `allRoutes()` includes only pages where `isPublished()` is true (`lib/publication.ts`, `data/release-schedule.json`, `DOCLIST_RELEASE_START`); unreleased pages simply don't exist (plain 404). A scheduled GitHub Action (`.github/workflows/deploy.yml`, 18:00 UTC = 00:00 Asia/Dhaka, plus every push) rebuilds and deploys, which is what releases each day's pages. Doctor profiles, `data/live-geography-pages.json` and `data/indexed-coverage.json` paths are always live. Anything linking to pages must go through `ReleaseLink.astro` / `isPublished*` / `doctorsFromIds`.
 
-**Indexability** is separate (`lib/indexability.ts`, `lib/index-rollout.ts`); `lib/seo.ts` `metadata()` builds the head data (`PageMeta`) that `src/layouts/Layout.astro` renders. Sitemaps: `src/pages/sitemap.xml.ts`, `sitemaps/[file].ts` (`100.xml` = fixed coverage set).
+**Indexability** is separate (`lib/indexability.ts`, `lib/index-rollout.ts`); `lib/seo.ts` `metadata()` builds `PageMeta` rendered by `src/layouts/Layout.astro`. Sitemaps (`sitemap.xml.ts`, `sitemaps/[file].ts`, `robots.txt.ts`) are static endpoints. `public/_headers` sets `X-Robots-Tag: noindex` on `/en`; `src/pages/redirects.txt.ts` becomes `dist/_redirects` (merged duplicate doctors, slug aliases, `/bn` → root).
 
-**Engagement (love/views).** `src/pages/api/doctors/[id]/engagement.ts` → `lib/engagement.ts`: Upstash Redis when `UPSTASH_REDIS_REST_*` is set, otherwise the Cloudflare D1 binding `DB` (`lib/engagement-db.ts`, schema in `migrations/`). Love is deduped by the `doclist-visitor` cookie. The middleware maps engagement API paths to the doctor page for publication checks.
+**Search/filters run in the browser.** `src/pages/search/index.json.ts` emits `/search/index.json` (compact doctor rows + specialties/locations/hospitals). `src/components/DoctorSearch.tsx` (island on every listing) shows the static list until a filter is used or the URL has `?q=`/`?specialty=`/…, then loads the index and filters (`filterRows`, kept in parity with `searchDoctors` by `scripts/test-search.mjs`). No love/view counters (removed with the Worker).
 
-**Islands** (`src/components/*.tsx`, hydrated with `client:*` from `.astro` files): SaveDoctor, DoctorEngagement, Preferences, GeographyFields, MyDoctors. Everything else is `.astro`. Saved doctors are localStorage bookmarks (`lib/saved-doctors.ts`, 365 days); `/my-doc` is noindex.
+**Islands** (`src/components/*.tsx`): SaveDoctor, ShareDoctor, Preferences, GeographyFields, DoctorSearch, MyDoctors. My Doc is localStorage bookmarks (`lib/saved-doctors.ts`); `/my-doc` is noindex and looks saved ids up in `/search/index.json` (merged duplicates via the row's `al` ids).
+
+**Featured doctors.** `data/featured-doctors.json` entries are merged into the directory at load (`lib/directory.ts`), so importer re-runs keep them; `featured` pins first in rosters, `verified`/`banner` render on the profile.

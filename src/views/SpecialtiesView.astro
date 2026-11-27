@@ -1,15 +1,14 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import PageDates from '../../components/PageDates.astro';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import SpecialtyCard from '../../components/SpecialtyCard.astro';
-import {specialties} from '../../../lib/directory';
-import {metadata} from '../../../lib/seo';
-import {getLocale} from '../../../lib/locale';
-import {t,pick,num} from '../../../lib/i18n';
+import type {Locale} from '../../lib/i18n';
+import Layout from '../layouts/Layout.astro';
+import PageDates from '../components/PageDates.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SpecialtyCard from '../components/SpecialtyCard.astro';
+import {specialties} from '../../lib/directory';
+import {metadata} from '../../lib/seo';
+import {t,pick,num} from '../../lib/i18n';
 
-const lang=getLocale(Astro.params.lang);
-if(!lang)return Astro.rewrite('/404');
+const {lang}=Astro.props as {lang:Locale};
 const meta=metadata(pick(lang,'Medical Specialties in Bangladesh','বাংলাদেশের চিকিৎসার বিশেষজ্ঞ বিভাগ'),pick(lang,'Browse medical specialties and compare doctors, locations and chambers.','চিকিৎসার বিশেষজ্ঞ বিভাগ বেছে নিয়ে ডাক্তার, এলাকা ও চেম্বারের তথ্য তুলনা করুন।'),'/specialties',{},lang);
 ---
 <Layout lang={lang} meta={meta}>

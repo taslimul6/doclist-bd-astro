@@ -7,8 +7,8 @@
     "PUBLIC_SITE_URL": "https://doclist-bd.com"
     // "DOCLIST_RELEASE_START": "2026-10-18"
   },
-  // Engagement (love/view counters). With no database_id, wrangler creates the database on first deploy.
+  // Engagement (love/view counters). Tables come from migrations/ and are also created lazily by the app.
   "d1_databases": [
-    {"binding": "DB", "database_name": "doclist-engagement", "migrations_dir": "migrations"}
+    {"binding": "DB", "database_name": "doclist-engagement", "database_id": "cb08d5ca-5481-44dd-85b5-104891269fde", "migrations_dir": "migrations"}
   ]
 }

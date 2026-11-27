@@ -1,0 +1,49 @@
+[
+  {
+    "id": "doc_5ba1e0c7d2f4",
+    "slug": "dr-abul-kalam-bhuiyan-masum",
+    "name": "Dr. Abul Kalam Bhuiyan (Masum)",
+    "nameVariants": ["ডাঃ আবুল কালাম ভূঁইয়া (মাসুম)"],
+    "specialtySlugs": ["medicine"],
+    "locationSlugs": ["mymensingh", "mymensingh-division"],
+    "chambers": [
+      {
+        "id": "ch_5ba1e0c7d2f5",
+        "hospitalSlug": "dh-lab-and-hospital-mymensingh",
+        "name": "DH Lab & Hospital, Mymensingh",
+        "address": "215, Rafiqul Tower (opposite the hospital gate, beside the overbridge), Charpara, Mymensingh",
+        "locations": ["mymensingh", "mymensingh-division"],
+        "phone": "01709976939, 01687640331 (WhatsApp)",
+        "schedule": "Every day 3 PM - 8 PM, Friday closed",
+        "fee": null,
+        "flags": "",
+        "source": "",
+        "specialtySlugs": ["medicine"]
+      }
+    ],
+    "qualifications": "MBBS, BCS (Health), FCPS (Medicine), MCPS (Medicine), MACP (USA)",
+    "designation": "Assistant Professor of Medicine",
+    "institute": "Mymensingh Medical College Hospital (former)",
+    "registration": "A-63206",
+    "experience": 15,
+    "gender": "male",
+    "image": "/assets/doctors/doc_5ba1e0c7d2f4.jpg",
+    "description": null,
+    "rawSpecialties": ["Medicine Specialist"],
+    "flags": [],
+    "sources": [],
+    "lastChecked": "2026-11-27",
+    "featured": true,
+    "verified": true,
+    "banner": "/assets/banners/dr-abul-kalam-bhuiyan-masum.jpg",
+    "hospital": {
+      "slug": "dh-lab-and-hospital-mymensingh",
+      "name": "DH Lab & Hospital, Mymensingh",
+      "type": "Hospital / Diagnostic Center",
+      "district": "mymensingh",
+      "locations": ["mymensingh", "mymensingh-division"],
+      "addresses": ["215, Rafiqul Tower (opposite the hospital gate, beside the overbridge), Charpara, Mymensingh"],
+      "phones": ["01709976939"]
+    }
+  }
+]

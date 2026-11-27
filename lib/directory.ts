@@ -8,13 +8,19 @@ import specialtyData from '../data/specialties.json';
 import locationData from '../data/locations.json';
 import combinations from '../data/combinations.json';
 import mergeData from '../data/doctor-merges.json';
+import featuredData from '../data/featured-doctors.json';
 import type {Doctor,Hospital,Specialty,Location,Query} from './types';
 const portraitPaths=imageManifest as Record<string,{path:string}>;
 // Duplicate profiles (data/doctor-merges.json, built by scripts/build-doctor-merges.mjs) fold into their
 // canonical profile: chambers and sources are combined, and the alias URL 301s to the canonical one.
 const merges=mergeData as Record<string,string>;
 export const canonicalDoctorId=(id:string)=>merges[id]||id;
-const rawDoctors=(doctorData as Doctor[]).map(d=>({...d,image:portraitPaths[d.id]?.path||d.image||null}));
+// Hand-curated profiles (data/featured-doctors.json) are merged here, so re-running the importer keeps them.
+// Each one is registered in its specialty, locations, hospital and specialty/location + hospital/specialty rosters.
+type Featured=Doctor&{hospital:Hospital};
+const featured=featuredData as unknown as Featured[];
+const featuredDoctors:Doctor[]=featured.map(({hospital:_h,...doc})=>doc);
+const rawDoctors=([...(doctorData as Doctor[]),...featuredDoctors]).map(d=>({...d,image:portraitPaths[d.id]?.path||d.image||null}));
 const aliasesOf=new Map<string,Doctor[]>();for(const d of rawDoctors)if(merges[d.id])(aliasesOf.get(merges[d.id])??aliasesOf.set(merges[d.id],[]).get(merges[d.id])!).push(d);
 const union=<T,>(items:T[],key:(x:T)=>string)=>[...new Map(items.map(x=>[key(x),x])).values()];
 const mergeProfile=(d:Doctor):Doctor=>{const extra=aliasesOf.get(d.id);if(!extra)return d;const all=[d,...extra];return {...d,
@@ -22,7 +28,22 @@ const mergeProfile=(d:Doctor):Doctor=>{const extra=aliasesOf.get(d.id);if(!extra
  chambers:union(all.flatMap(x=>x.chambers),c=>c.hospitalSlug||c.id),sources:union(all.flatMap(x=>x.sources),x=>x),flags:union(all.flatMap(x=>x.flags),x=>x),
  image:d.image||extra.find(x=>x.image)?.image||null,registration:d.registration||extra.find(x=>x.registration)?.registration||'',experience:d.experience??extra.find(x=>x.experience!=null)?.experience??null};};
 export const doctors=rawDoctors.filter(d=>!merges[d.id]).map(mergeProfile);
-export const hospitals=(hospitalData as Hospital[]).sort((a,b)=>b.doctorIds.length-a.doctorIds.length);
+const addId=(list:string[],id:string)=>{if(!list.includes(id))list.push(id);};
+const hospitalRows=hospitalData as Hospital[];
+for(const f of featured){
+ let h=hospitalRows.find(x=>x.slug===f.hospital.slug);
+ if(!h){h={...f.hospital,doctorIds:[],specialtySlugs:[],sources:[]};hospitalRows.push(h);}
+ addId(h.doctorIds,f.id);for(const s of f.specialtySlugs)if(!h.specialtySlugs.includes(s))h.specialtySlugs.push(s);
+ for(const s of f.specialtySlugs){
+  const sp=(specialtyData as Specialty[]).find(x=>x.slug===s);
+  if(sp){addId(sp.doctorIds,f.id);for(const l of f.locationSlugs)if(!sp.locationSlugs.includes(l))sp.locationSlugs.push(l);if(!sp.hospitalSlugs.includes(h.slug))sp.hospitalSlugs.push(h.slug);}
+  for(const l of f.locationSlugs)addId((combinations.specialtyLocation as Record<string,string[]>)[s+'/'+l]??=[],f.id);
+  addId((combinations.hospitalSpecialty as Record<string,string[]>)[h.slug+'/'+s]??=[],f.id);
+  ((combinations.relations as Record<string,unknown[]>)[f.id]??=[]).push({specialty:s,hospital:h.slug,locations:f.locationSlugs});
+ }
+ for(const l of f.locationSlugs){const loc=(locationData as Location[]).find(x=>x.slug===l);if(loc){addId(loc.doctorIds,f.id);if(!loc.hospitalSlugs.includes(h.slug))loc.hospitalSlugs.push(h.slug);}}
+}
+export const hospitals=hospitalRows.sort((a,b)=>b.doctorIds.length-a.doctorIds.length);
 export const specialties=(specialtyData as Specialty[]).sort((a,b)=>b.doctorIds.length-a.doctorIds.length);
 export const locations=(locationData as Location[]).sort((a,b)=>b.doctorIds.length-a.doctorIds.length);
 const byId=new Map(doctors.map(d=>[d.id,d]));
@@ -50,7 +71,7 @@ export const getAllDoctors=()=>doctors;
 export const getHospitals=()=>hospitals;
 export const getSpecialties=()=>specialties;
 export const getLocations=()=>locations;
-export const doctorsFromIds=(ids:string[])=>canonicalDoctorIds(ids).map(id=>byId.get(id)).filter((d):d is Doctor=>!!d&&isPublished('/doctor/'+d.slug));
+export const doctorsFromIds=(ids:string[])=>canonicalDoctorIds(ids).map(id=>byId.get(id)).filter((d):d is Doctor=>!!d&&isPublished('/doctor/'+d.slug)).sort((a,b)=>Number(!!b.featured)-Number(!!a.featured));
 export const getDoctorsByLocation=(slug:string)=>doctorsFromIds(getLocationBySlug(slug)?.doctorIds||[]);
 export const getDoctorsBySpecialty=(slug:string)=>doctorsFromIds(getSpecialtyBySlug(slug)?.doctorIds||[]);
 export const getDoctorsByHospital=(slug:string)=>doctorsFromIds(getHospitalBySlug(slug)?.doctorIds||[]);
@@ -67,7 +88,7 @@ const searchIndex=new Map(doctors.map(d=>[d.id,[d.name,d.qualifications,d.design
 type Relation={specialty:string;hospital:string;locations:string[]};
 const relationsFor=(id:string)=>[id,...(aliasesOf.get(id)||[]).map(x=>x.id)].flatMap(x=>(combinations.relations as Record<string,Relation[]>)[x]||[]);
 export function searchDoctors(ids:string[]|undefined,q:Query) {
- let result=ids?doctorsFromIds(ids):doctors.filter(d=>isPublished('/doctor/'+d.slug));
+ let result=ids?doctorsFromIds(ids):doctors.filter(d=>isPublished('/doctor/'+d.slug)).sort((a,b)=>Number(!!b.featured)-Number(!!a.featured));
  const specialty=getSpecialtyBySlug(value(q,'specialty'));const location=getLocationBySlug(value(q,'location'));const hospital=getHospitalBySlug(value(q,'hospital'));
  const division=getLocationBySlug(value(q,'division')),district=getLocationBySlug(value(q,'district'));
  if((value(q,'division')&&division?.kind!=='division')||(value(q,'district')&&district?.kind!=='district')||(district&&division&&district.parent!==division.slug))result=[];

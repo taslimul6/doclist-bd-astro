@@ -1,0 +1,66 @@
+---
+import '../../styles/header.css';
+import '../../styles/footer.css';
+import '../../styles/directory.css';
+import '../../styles/profile.css';
+import '../../styles/responsive.css';
+import '../../styles/globals.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ReleaseLink from '../components/ReleaseLink.astro';
+import type {PageMeta} from '../../lib/seo';
+import {siteName} from '../../lib/seo';
+import {type Locale,t} from '../../lib/i18n';
+
+type Props={lang:Locale;meta:Partial<PageMeta>&{title:string}};
+const {lang,meta}=Astro.props;
+const title=meta.title+' | '+siteName;
+const googleBot=meta.robots?.googleBot;
+const robotsContent=meta.robots?(meta.robots.index?'index':'noindex')+', '+(meta.robots.follow?'follow':'nofollow'):undefined;
+const googleBotContent=googleBot?Object.entries(googleBot).map(([k,v])=>typeof v==='boolean'?(v?k:'no'+k):k+':'+v).join(', '):undefined;
+const pathname=Astro.locals.originalPath||Astro.url.pathname;
+// Applied before first paint to avoid a theme flash.
+const themeInit="try{var s=localStorage.getItem('doclist-theme');var d=s==='dark'||(s!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.dataset.theme=d?'dark':'light'}catch(e){document.documentElement.dataset.theme='light'}";
+// Portraits that fail to load fall back to the initials badge (replaces a client component).
+const avatarFallback="document.addEventListener('error',function(e){var i=e.target;if(i&&i.tagName==='IMG'&&i.classList.contains('local-portrait')){var d=document.createElement('div');d.className=i.className.replace('local-portrait','initials');d.setAttribute('aria-hidden','true');d.textContent=i.getAttribute('data-initials')||'';i.replaceWith(d);}},true);";
+const analytics="window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SJSQXS7FJ9');";
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{title}</title>
+    {meta.description&&<meta name="description" content={meta.description}/>}
+    {meta.applicationName&&<meta name="application-name" content={meta.applicationName}/>}
+    {robotsContent&&<meta name="robots" content={robotsContent}/>}
+    {googleBotContent&&<meta name="googlebot" content={googleBotContent}/>}
+    {meta.alternates?.canonical&&<link rel="canonical" href={meta.alternates.canonical}/>}
+    {meta.alternates?.languages&&Object.entries(meta.alternates.languages).map(([code,href])=><link rel="alternate" hreflang={code} href={href}/>)}
+    {meta.openGraph&&<>
+      <meta property="og:title" content={meta.openGraph.title}/>
+      <meta property="og:description" content={meta.openGraph.description}/>
+      <meta property="og:url" content={meta.openGraph.url}/>
+      {meta.openGraph.siteName&&<meta property="og:site_name" content={meta.openGraph.siteName}/>}
+      <meta property="og:type" content={meta.openGraph.type}/>
+      <meta property="og:locale" content={meta.openGraph.locale}/>
+      {meta.openGraph.alternateLocale?.map(l=><meta property="og:locale:alternate" content={l}/>)}
+    </>}
+    {meta.twitter&&<>
+      <meta name="twitter:card" content={meta.twitter.card}/>
+      <meta name="twitter:title" content={meta.twitter.title}/>
+      <meta name="twitter:description" content={meta.twitter.description}/>
+    </>}
+    <link rel="icon" href="/favicon.svg"/>
+    <script is:inline set:html={themeInit}></script>
+    <script is:inline set:html={avatarFallback}></script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-SJSQXS7FJ9"></script>
+    <script is:inline set:html={analytics}></script>
+  </head>
+  <body>
+    <ReleaseLink href="#main-content" class="skip-link">{t(lang,'Skip to content')}</ReleaseLink>
+    <Header lang={lang} pathname={pathname}/>
+    <main id="main-content"><slot/></main>
+    <Footer lang={lang}/>
+  </body>
+</html>

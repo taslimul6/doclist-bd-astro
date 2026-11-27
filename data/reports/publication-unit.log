@@ -1,0 +1,16 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> doclist-bd@1.0.0 test:publication
+> node scripts/test-publication.mjs
+
+{
+  status: 'passed',
+  baselinePages: 5662,
+  scheduledPages: 6943,
+  batches: 232,
+  pagesPerBatch: 30,
+  lastBatch: 13,
+  timeZone: 'Asia/Dhaka',
+  boundaryWithoutRestart: true,
+  searchAndSitemapFiltering: true
+}

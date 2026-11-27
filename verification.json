@@ -1,0 +1,74 @@
+{
+  "status": "passed",
+  "validationDate": "2026-10-17",
+  "runtime": "Node 24.19.0 locally; deployment retains Node 22.x setting",
+  "productionBuild": true,
+  "typecheck": true,
+  "lint": "not configured in supplied project",
+  "idempotentImport": true,
+  "baselineDoctorIdsAndSlugsPreserved": 2044,
+  "districts": 64,
+  "divisions": 8,
+  "orphanReferences": 0,
+  "directoryAndBilingualInteractions": "passed",
+  "portraits": "1448 local images validated; fallback retained",
+  "http": {
+    "seoRequests": 54,
+    "newNationalRequests": 36,
+    "locales": [
+      "bn",
+      "en"
+    ]
+  },
+  "engagement": "isolated SQLite tests passed, including restart persistence; production Redis not accessed",
+  "seo": {
+    "excludedUrls": 18406,
+    "fullDatasetSitemapUrls": 6804,
+    "currentlyPublishedSitemapUrls": 4034
+  },
+  "counts": {
+    "doctors": 3643,
+    "chambers": 3943,
+    "specialtyListings": 5903,
+    "districts": 64,
+    "divisions": 8
+  },
+  "unresolved": {
+    "reviewCases": 201,
+    "conflictingValues": 102
+  },
+  "deployment": "not deployed",
+  "publication": {
+    "status": "passed",
+    "existingMainPages": 5662,
+    "newMainPages": 6943,
+    "mainPagesPerDay": 30,
+    "languageUrlsPerDay": 60,
+    "startDate": "2026-10-18",
+    "endDate": "2027-06-06",
+    "timezone": "Asia/Dhaka",
+    "days": 232,
+    "finalBatch": 13,
+    "noRestartRequired": true,
+    "productionHttpRequests": 36,
+    "notDeployed": true,
+    "seoSmokeRequests": 51,
+    "stableScheduleOnRefresh": true
+  },
+  "sitemaps": {
+    "maxPageUrlsPerFile": 1000,
+    "currentPageUrls": 4034,
+    "currentFiles": {
+      "0.xml": 1000,
+      "1.xml": 1000,
+      "2.xml": 1000,
+      "3.xml": 1000,
+      "4.xml": 34
+    },
+    "automaticNewShards": true,
+    "scheduledPublicationPolicyPreserved": true,
+    "productionBuild": "passed",
+    "productionSeoHttpRequests": 55,
+    "threeStagePublicationHttp": "passed"
+  }
+}

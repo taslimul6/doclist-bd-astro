@@ -1,0 +1,9 @@
+---
+import ReleaseLink from './ReleaseLink.astro';
+import {locations,hospitals} from '../../lib/directory';
+import {type Locale,t,localizedPath,place,provider,num,pick} from '../../lib/i18n';
+const {lang}=Astro.props as {lang:Locale};
+const url=(p:string)=>localizedPath(lang,p);
+const essential=[['Privacy Policy','গোপনীয়তা নীতি','/privacy-policy'],['Terms of Use','ব্যবহারের শর্তাবলি','/terms-of-use'],['Contact','যোগাযোগ','/contact'],['Sponsorship','স্পনসরশিপ','/sponsorship']];
+---
+<footer class="site-footer"><div class="container"><div class="footer-cta"><div><h2>{t(lang,'Find the right care, faster.')}</h2><p>{t(lang,'Browse qualifications, chambers and appointment details.')}</p></div><ReleaseLink class="btn btn-primary" href={url('/doctors')}>{t(lang,'Search Doctors')}</ReleaseLink></div><div class="footer-grid"><div class="footer-brand"><div class="brand"><span class="brand-mark">+</span><span>Doclist Bd<small>{t(lang,'Bangladesh')}</small></span></div><p>{t(lang,'A doctor and hospital directory built from public listings. Confirm current details with your chosen provider.')}</p></div><div class="footer-col"><h3>{t(lang,'Locations')}</h3>{locations.filter(l=>l.kind==='district').slice(0,5).map(l=><ReleaseLink href={url('/doctors/'+l.slug)}>{place(lang,l.name)}</ReleaseLink>)}</div><div class="footer-col"><h3>{t(lang,'Hospitals & Clinics')}</h3>{hospitals.slice(0,4).map(h=><ReleaseLink href={url('/hospital/'+h.slug)}>{provider(lang,h.name)}</ReleaseLink>)}</div><div class="footer-col"><h3>Essential Links</h3>{essential.map(([en,bn,path])=><ReleaseLink href={url(path)}>{pick(lang,en,bn)}</ReleaseLink>)}</div></div><div class="footer-bottom"><span>© {num(lang,new Date().getFullYear())} Doclist Bd</span><span>{t(lang,'Public listing information; provider details may change.')}</span></div></div></footer>

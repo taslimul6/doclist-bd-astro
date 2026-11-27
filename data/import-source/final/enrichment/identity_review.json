@@ -1,0 +1,710 @@
+[
+  {
+    "normalized_name": "syedamomenahossainnishi",
+    "records": [
+      {
+        "doctor_name": "Dr. Syeda Momena Hossain (Nishi)",
+        "clinic": "Ibn Sina Diagnostic & Consultation Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_e907441b38b0",
+        "chamber_id": "ch_5580f3aefcda"
+      },
+      {
+        "doctor_name": "Dr. Syeda Momena Hossain (Nishi)",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_e907441b38b0",
+        "chamber_id": "ch_ab5c08461e12"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "shishmohammadsarkar",
+    "records": [
+      {
+        "doctor_name": "Dr. Shish Mohammad Sarkar",
+        "clinic": "Ibn Sina Diagnostic & Consultation Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_4dd582eba950",
+        "chamber_id": "ch_c5ef3a5d8209"
+      },
+      {
+        "doctor_name": "Dr. Shish Mohammad Sarkar",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_4dd582eba950",
+        "chamber_id": "ch_6199b0f84eb2"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "rokeyakhatun",
+    "records": [
+      {
+        "doctor_name": "Prof. Dr. Rokeya Khatun",
+        "clinic": "Ibn Sina Diagnostic & Consultation Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_66d034f07a16",
+        "chamber_id": "ch_52115ed7c772"
+      },
+      {
+        "doctor_name": "Dr. Rokeya Khatun",
+        "clinic": "Rajshahi Metropolitan Hospital & Diagnostic Center",
+        "district": "Rajshahi",
+        "doctor_id": "doc_44dbb73a182c",
+        "chamber_id": "ch_bca4a6bcd6dc"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "sayedahmed",
+    "records": [
+      {
+        "doctor_name": "Prof. Dr. Sayed Ahmed",
+        "clinic": "Ibn Sina Diagnostic & Consultation Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_278be424fb1c",
+        "chamber_id": "ch_df146939b004"
+      },
+      {
+        "doctor_name": "Dr. Sayed Ahmed",
+        "clinic": "Medipath Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_216a69d7052a",
+        "chamber_id": "ch_64e835ef459b"
+      },
+      {
+        "doctor_name": "Dr. Sayed Ahmed",
+        "clinic": "Medipath Diagnostic Complex Medipath Diagnostic Complex, Sepaypara (In front of Medical College), Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_216a69d7052a",
+        "chamber_id": "ch_8672b6b69283"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "khnafizrahman",
+    "records": [
+      {
+        "doctor_name": "Dr. Kh. Nafiz Rahman",
+        "clinic": "Ibn Sina Diagnostic & Consultation Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_ceec1a891699",
+        "chamber_id": "ch_1b0d9135239b"
+      },
+      {
+        "doctor_name": "Dr. Kh. Nafiz Rahman",
+        "clinic": "Rajshahi Central Hospital & Diagnostic Center",
+        "district": "Rajshahi",
+        "doctor_id": "doc_ceec1a891699",
+        "chamber_id": "ch_87b45a1826ed"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdbaharulislam",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Baharul Islam",
+        "clinic": "Rajshahi Model Hospital",
+        "district": "Rajshahi",
+        "doctor_id": "doc_1b5a875834e0",
+        "chamber_id": "ch_54574714022b"
+      },
+      {
+        "doctor_name": "Dr. Md. Baharul Islam",
+        "clinic": "Islami Bank Hospital, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_1b5a875834e0",
+        "chamber_id": "ch_07bd7aa4f9c9"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdsaifulislam",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Saiful Islam",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_892f23b8e4cf",
+        "chamber_id": "ch_9a8326ffd448"
+      },
+      {
+        "doctor_name": "Dr. Md. Saiful Islam",
+        "clinic": "Medipath Diagnostic Complex Medipath Diagnostic Complex, Sepaypara (In front of Medical College), Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_892f23b8e4cf",
+        "chamber_id": "ch_e93bc8f25f7a"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mohammadzannatulrayhan",
+    "records": [
+      {
+        "doctor_name": "Dr. Mohammad Zannatul Rayhan",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_7b852a604eb2",
+        "chamber_id": "ch_e23cc47f8774"
+      },
+      {
+        "doctor_name": "Dr. Mohammad Zannatul Rayhan",
+        "clinic": "Labaid Diagnostic, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_7b852a604eb2",
+        "chamber_id": "ch_c8e7091843d2"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdbelaluddin",
+    "records": [
+      {
+        "doctor_name": "Prof. Dr. Md. Belal Uddin",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_c40746c5e011",
+        "chamber_id": "ch_9c712468edaf"
+      },
+      {
+        "doctor_name": "Prof. Dr. Md. Belal Uddin",
+        "clinic": "Rajshahi Metropolitan Hospital & Diagnostic Center",
+        "district": "Rajshahi",
+        "doctor_id": "doc_c40746c5e011",
+        "chamber_id": "ch_4150109a6dee"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdshafiqulislam",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Shafiqul Islam",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_21cc1692def8",
+        "chamber_id": "ch_fff0ec5c1d3e"
+      },
+      {
+        "doctor_name": "Dr. Md. Shafiqul Islam",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_21cc1692def8",
+        "chamber_id": "ch_fff0ec5c1d3e"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "nahidsultana",
+    "records": [
+      {
+        "doctor_name": "Dr. Nahid Sultana",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_9e34860104d0",
+        "chamber_id": "ch_d9c7ddb19a40"
+      },
+      {
+        "doctor_name": "Dr. Nahid Sultana",
+        "clinic": "Graduate General Hospital, Joypurhat",
+        "district": "Joypurhat",
+        "doctor_id": "doc_9e34860104d0",
+        "chamber_id": "ch_370b7ceb6f8e"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "syedmahbubalamliton",
+    "records": [
+      {
+        "doctor_name": "Dr. Syed Mahbub Alam (Liton)",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_bff321cca5cc",
+        "chamber_id": "ch_447e84a2fc3e"
+      },
+      {
+        "doctor_name": "Dr. Syed Mahbub Alam (Liton)",
+        "clinic": "Rajshahi Royal Hospital Pvt. Ltd.",
+        "district": "Rajshahi",
+        "doctor_id": "doc_bff321cca5cc",
+        "chamber_id": "ch_b27100226514"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdlailatulkadirmilky",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Lailatul Kadir Milky",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_81c0961a7a8e",
+        "chamber_id": "ch_daa61a96e9df"
+      },
+      {
+        "doctor_name": "Dr. Md. Lailatul Kadir Milky",
+        "clinic": "Rajshahi Royal Hospital Pvt. Ltd.",
+        "district": "Rajshahi",
+        "doctor_id": "doc_81c0961a7a8e",
+        "chamber_id": "ch_6c8dfe4c1c06"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdmunzurrahman",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Munzur Rahman",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_18413c30eba5",
+        "chamber_id": "ch_00291bccedd7"
+      },
+      {
+        "doctor_name": "Dr. Md. Munzur Rahman",
+        "clinic": "Rajshahi Royal Hospital Pvt. Ltd.",
+        "district": "Rajshahi",
+        "doctor_id": "doc_18413c30eba5",
+        "chamber_id": "ch_b0eacc2e6fce"
+      },
+      {
+        "doctor_name": "Dr. Md. Munzur Rahman",
+        "clinic": "Amana Hospital Limited Amana Hospital Limited, Jhawtola more, Laxmipur, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_18413c30eba5",
+        "chamber_id": "ch_cbfd4bd8bc00"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "abdullahalmamun",
+    "records": [
+      {
+        "doctor_name": "Dr. Abdullah Al Mamun",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_d2e7058d4ac8",
+        "chamber_id": "ch_49af6a3350ac"
+      },
+      {
+        "doctor_name": "Dr. Abdullah Al Mamun",
+        "clinic": "Khwaja Yunus Ali Medical College & Hospital",
+        "district": "Sirajganj",
+        "doctor_id": "doc_d2e7058d4ac8",
+        "chamber_id": "ch_aee327eeb13b"
+      },
+      {
+        "doctor_name": "Dr. Abdullah Al Mamun",
+        "clinic": "Shimla Hospital, Pabna",
+        "district": "Pabna",
+        "doctor_id": "doc_d2e7058d4ac8",
+        "chamber_id": "ch_870ee775eade"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdasadulislam",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Asadul Islam",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_3b6a411af320",
+        "chamber_id": "ch_a168c6400192"
+      },
+      {
+        "doctor_name": "Dr. Md. Asadul Islam",
+        "clinic": "Shimla Hospital, Pabna",
+        "district": "Pabna",
+        "doctor_id": "doc_3b6a411af320",
+        "chamber_id": "ch_1c4bedefb75c"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdnurealamsiddiqui",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Nure Alam Siddiqui",
+        "clinic": "Islami Bank Hospital, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_65b670f91d92",
+        "chamber_id": "ch_bc80115e6497"
+      },
+      {
+        "doctor_name": "Dr. Md. Nur-E-Alam Siddiqui",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_65b670f91d92",
+        "chamber_id": "ch_d649e6c3dce4"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdazizulhaque",
+    "records": [
+      {
+        "doctor_name": "Prof. Dr. Md. Azizul Haque",
+        "clinic": "Islami Bank Hospital, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_ea7ac9989238",
+        "chamber_id": "ch_621a198d03db"
+      },
+      {
+        "doctor_name": "Dr. Md. Azizul Haque",
+        "clinic": "Popular Diagnostic Center, Bogra",
+        "district": "Bogura",
+        "doctor_id": "doc_ea7ac9989238",
+        "chamber_id": "ch_f7ae43e51b2b"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "nooreatialovely",
+    "records": [
+      {
+        "doctor_name": "Dr. Noor-E-Atia Lovely",
+        "clinic": "Labaid Diagnostic, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_0ca77c705ac2",
+        "chamber_id": "ch_f40afb03304b"
+      },
+      {
+        "doctor_name": "Dr. Noor-E-Atia Lovely",
+        "clinic": "Islami Bank Hospital, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_0ca77c705ac2",
+        "chamber_id": "ch_45df4b29cfc2"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "abdullahalmamunhussain",
+    "records": [
+      {
+        "doctor_name": "Prof. Dr. Abdullah Al Mamun Hussain",
+        "clinic": "Medipath Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_3abeb0949f28",
+        "chamber_id": "ch_98d086ebee68"
+      },
+      {
+        "doctor_name": "Prof. Dr. Abdullah Al Mamun Hussain",
+        "clinic": "Medipath Diagnostic Complex Medipath Diagnostic Complex, Laxmipur, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_3abeb0949f28",
+        "chamber_id": "ch_3b6f00918a83"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdabdulhakim",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Abdul Hakim",
+        "clinic": "Zamzam Islami Hospital, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_ed9305d994c6",
+        "chamber_id": "ch_beeeb248d311"
+      },
+      {
+        "doctor_name": "Dr. Md. Abdul Hakim",
+        "clinic": "Fair Hospital & Diagnostic Center, Pabna",
+        "district": "Pabna",
+        "doctor_id": "doc_ed9305d994c6",
+        "chamber_id": "ch_da219d9630cf"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdnazmulhaque",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Nazmul Haque",
+        "clinic": "Central Lab & Hospital, Natore",
+        "district": "Natore",
+        "doctor_id": "doc_b152e01fc842",
+        "chamber_id": "ch_b961a70f82b1"
+      },
+      {
+        "doctor_name": "Dr. Md. Nazmul Haque",
+        "clinic": "Ibn Sina Diagnostic & Consultation Center, Bogra",
+        "district": "Bogura",
+        "doctor_id": "doc_b152e01fc842",
+        "chamber_id": "ch_e28f06de224d"
+      },
+      {
+        "doctor_name": "Dr. Md. Nazmul Haque",
+        "clinic": "Shafique Hospital, Pabna",
+        "district": "Pabna",
+        "doctor_id": "doc_b152e01fc842",
+        "chamber_id": "ch_bdad53cd0804"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdnazrulislamnahid",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Nazrul Islam Nahid",
+        "clinic": "Graduate General Hospital, Joypurhat",
+        "district": "Joypurhat",
+        "doctor_id": "doc_6e81d26018e0",
+        "chamber_id": "ch_f89ea3bda6f5"
+      },
+      {
+        "doctor_name": "Dr. Md. Nazrul Islam Nahid",
+        "clinic": "Ibn Sina Diagnostic & Consultation Center, Bogra",
+        "district": "Bogura",
+        "doctor_id": "doc_6e81d26018e0",
+        "chamber_id": "ch_291524d67f0e"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "ডাঃকামরুলহাসানপারভেজ",
+    "records": [
+      {
+        "doctor_name": "ডাঃ কামরুল হাসান পারভেজ।",
+        "clinic": "Private Chamber, Moktarpara",
+        "district": "Sirajganj",
+        "doctor_id": "doc_bdd1cf9fef11",
+        "chamber_id": "ch_68bbd532d875"
+      },
+      {
+        "doctor_name": "ডাঃ কামরুল হাসান পারভেজ।",
+        "clinic": "Medinova Hospital Complex, Sirajganj",
+        "district": "Sirajganj",
+        "doctor_id": "doc_bdd1cf9fef11",
+        "chamber_id": "ch_ec67e4404553"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdahsanhabib",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Ahsan Habib",
+        "clinic": "Popular Diagnostic Center, Bogra",
+        "district": "Bogura",
+        "doctor_id": "doc_0aeac62a1db4",
+        "chamber_id": "ch_24da5c5ed178"
+      },
+      {
+        "doctor_name": "Dr. Md. Ahsan Habib",
+        "clinic": "Ibn Sina Diagnostic & Consultation Center, Bogra",
+        "district": "Bogura",
+        "doctor_id": "doc_0aeac62a1db4",
+        "chamber_id": "ch_9c8800f0b62f"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "monzurahmed",
+    "records": [
+      {
+        "doctor_name": "Dr. Monzur Ahmed",
+        "clinic": "Popular Diagnostic Center, Bogra",
+        "district": "Bogura",
+        "doctor_id": "doc_96518260ce2c",
+        "chamber_id": "ch_4bd0a444e28d"
+      },
+      {
+        "doctor_name": "Dr. Monzur Ahmed",
+        "clinic": "Kimia Diagnostic Center, Pabna",
+        "district": "Pabna",
+        "doctor_id": "doc_96518260ce2c",
+        "chamber_id": "ch_aa6f19cdf035"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "arpitadas",
+    "records": [
+      {
+        "doctor_name": "Dr. Arpita Das",
+        "clinic": "Healthcare Nursing Home,Shershah Road,Laxmipur, Rajshahi Laxmipur,Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_e026c6a513cf",
+        "chamber_id": "ch_b73eddcae43b"
+      },
+      {
+        "doctor_name": "Dr. Arpita Das",
+        "clinic": "Saad Diagnostic Centre Beside popular,Laxmipur,Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_e026c6a513cf",
+        "chamber_id": "ch_1c49106c9b7a"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "azizulhaque",
+    "records": [
+      {
+        "doctor_name": "Dr. Azizul Haque",
+        "clinic": "Jom Jom Islami Hospital, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_8b2b1d9268de",
+        "chamber_id": "ch_e88b5a3e1d81"
+      },
+      {
+        "doctor_name": "Dr. Azizul Haque",
+        "clinic": "Islami Bank Hospital, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_8b2b1d9268de",
+        "chamber_id": "ch_285e564f8242"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdmurshedzamanmia",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Murshed Zaman Mia",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_1308409fd0e8",
+        "chamber_id": "ch_5d48a67b9b9b"
+      },
+      {
+        "doctor_name": "Dr. Md. Murshed Zaman Mia",
+        "clinic": "Islami Bank Hospital, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_1308409fd0e8",
+        "chamber_id": "ch_bdcfed1092e3"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdnowshadali",
+    "records": [
+      {
+        "doctor_name": "Dr. Md. Nowshad Ali",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_106ea414100a",
+        "chamber_id": "ch_40ffcf2dabfd"
+      },
+      {
+        "doctor_name": "Dr. Md. Nowshad Ali",
+        "clinic": "Rajshahi Metropoliton Hospital Rajshahi Metropoliton Hospital, C And B more ( In front of 10th Floor Building), Kajhihata, Laxmipur, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_106ea414100a",
+        "chamber_id": "ch_6599c543451d"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mohammadbelaluddin",
+    "records": [
+      {
+        "doctor_name": "Dr. Mohammad. Belal Uddin",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_1f3e47da594e",
+        "chamber_id": "ch_04ef49bf57f7"
+      },
+      {
+        "doctor_name": "Dr. Mohammad. Belal Uddin",
+        "clinic": "Rajshahi Metropoliton Hospital Rajshahi Metropoliton Hospital, C And B more ( In front of 10th Floor Building), Kajhihata, Laxmipur, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_1f3e47da594e",
+        "chamber_id": "ch_a210ee0d56ef"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mohammadharunorroshid",
+    "records": [
+      {
+        "doctor_name": "Dr. Mohammad. Harun-or-Roshid",
+        "clinic": "Popular Diagnostic Center, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_eba9c9341e68",
+        "chamber_id": "ch_5a6443c561a5"
+      },
+      {
+        "doctor_name": "Dr. Mohammad. Harun-or-Roshid",
+        "clinic": "Jom Jom Islami Hospital, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_eba9c9341e68",
+        "chamber_id": "ch_361151425274"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "shiprachowdhury",
+    "records": [
+      {
+        "doctor_name": "Dr. Shipra Chowdhury",
+        "clinic": "Padma Clinic Padma Clinic, C And B More, Laxmipur, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_2e2a0c483837",
+        "chamber_id": "ch_41d36246aedb"
+      },
+      {
+        "doctor_name": "Dr. Shipra Chowdhury",
+        "clinic": "Amana Hospital Limited Amana Hospital Limited, Jhawtola more, Laxmipur, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_2e2a0c483837",
+        "chamber_id": "ch_0eb491abd75d"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  },
+  {
+    "normalized_name": "mdjasimuddin",
+    "records": [
+      {
+        "doctor_name": "Dr.Md. Jasim Uddin",
+        "clinic": "Micropath diagnostic centre Laxmipur, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_f8e22ead79a5",
+        "chamber_id": "ch_ef7401615994"
+      },
+      {
+        "doctor_name": "Dr.Md. Jasim Uddin",
+        "clinic": "Labaid Diagnostic, Rajshahi",
+        "district": "Rajshahi",
+        "doctor_id": "doc_f8e22ead79a5",
+        "chamber_id": "ch_12aea0ee743b"
+      }
+    ],
+    "note": "Multiple chambers may be legitimate; compare clinic aliases and BMDC before merging."
+  }
+]

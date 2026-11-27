@@ -1,18 +1,15 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "doclist-bd-astro",
-  "main": "dist/_worker.js/index.js",
   "compatibility_date": "2026-10-20",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS",
-    "html_handling": "none",
-    "not_found_handling": "none"
-  },
+  "compatibility_flags": ["nodejs_compat"],
   "vars": {
-    "NEXT_PUBLIC_SITE_URL": "https://doclist-bd.com"
-  }
+    "PUBLIC_SITE_URL": "https://doclist-bd.com"
+    // "DOCLIST_RELEASE_START": "2026-10-18"
+  },
+  // Engagement (love/view counters). Create with: npx wrangler d1 create doclist-engagement
+  // then paste the database_id and run: npm run db:migrate
+  "d1_databases": [
+    {"binding": "DB", "database_name": "doclist-engagement", "database_id": "REPLACE_WITH_D1_DATABASE_ID", "migrations_dir": "migrations"}
+  ]
 }

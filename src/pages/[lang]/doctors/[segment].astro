@@ -1,0 +1,22 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ListingPage from '../../../components/ListingPage.astro';
+import {metadata} from '../../../../lib/seo';
+import {getLocale} from '../../../../lib/locale';
+import {queryFrom} from '../../../../lib/utils';
+import {runListing} from '../../../../lib/listing';
+import {locationContext} from '../../../../lib/page-contexts';
+import {resolveLocationSlug} from '../../../../lib/directory';
+import {localizedPath} from '../../../../lib/i18n';
+const lang=getLocale(Astro.params.lang);
+if(!lang)return Astro.rewrite('/404');
+const query=queryFrom(Astro.url.searchParams);
+const normalized=resolveLocationSlug(Astro.params.segment!);
+if(normalized!==Astro.params.segment)return Astro.redirect(localizedPath(lang,'/doctors/'+normalized),301);
+const c=locationContext(Astro.params.segment!,lang);
+if(!c)return Astro.rewrite('/404');
+const {result,baseCount,invalid}=runListing(c,query);
+if(invalid)return Astro.rewrite('/404');
+const meta=metadata(c.title,c.description,c.path,query,lang);
+---
+<Layout lang={lang} meta={meta}><ListingPage lang={lang} context={c} query={query} result={result} baseCount={baseCount}/></Layout>

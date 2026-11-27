@@ -1,0 +1,8 @@
+---
+import type {Doctor} from '../../lib/types';
+// Broken portraits fall back to initials through the delegated error handler in Layout.astro.
+const {doctor,large=false}=Astro.props as {doctor:Pick<Doctor,'name'|'image'>;large?:boolean};
+const classes=large?'profile-photo':'doctor-photo';
+const initials=doctor.name.replace(/^(prof\.?\s*)?(dr\.?\s*)/i,'').split(/\s+/).slice(0,2).map(x=>x[0]).join('');
+---
+{doctor.image?<img class={classes+' local-portrait'} src={doctor.image} alt={doctor.name} width={large?160:90} height={large?200:114} loading={large?'eager':'lazy'} decoding="async" data-initials={initials}/>:<div class={classes+' initials'} aria-hidden="true">{initials}</div>}

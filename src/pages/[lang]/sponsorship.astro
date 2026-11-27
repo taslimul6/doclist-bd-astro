@@ -1,0 +1,10 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import EssentialPage from '../../components/EssentialPage.astro';
+import {getLocale} from '../../../lib/locale';
+import {essentialMetadata} from '../../../lib/essential-pages';
+
+const lang=getLocale(Astro.params.lang);
+if(!lang)return Astro.rewrite('/404');
+---
+<Layout lang={lang} meta={essentialMetadata('sponsorship',lang)}><EssentialPage page="sponsorship" lang={lang}/></Layout>

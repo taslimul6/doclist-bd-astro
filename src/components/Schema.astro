@@ -1,0 +1,11 @@
+---
+import {isPublishedHref} from '../../lib/publication';
+const {data}=Astro.props as {data:object};
+function released(value:unknown):unknown{
+  if(Array.isArray(value))return value.map(released);
+  if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).filter(([key,v])=>!(['url','item','@id'].includes(key)&&typeof v==='string'&&!isPublishedHref(v))).map(([k,v])=>[k,released(v)]));
+  return value;
+}
+const json=JSON.stringify(released({'@context':'https://schema.org',...data})).replace(/</g,'\u003c');
+---
+<script type="application/ld+json" is:inline set:html={json}></script>

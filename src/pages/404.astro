@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {t,localizedPath} from '../../lib/i18n';
+
+const lang=/^\/en(\/|$)/.test(Astro.locals.originalPath||Astro.url.pathname)?'en':'bn';
+Astro.response.status=404;
+const meta={title:t(lang,'This directory page was not found'),robots:{index:false,follow:true}};
+---
+<Layout lang={lang} meta={meta}>
+<div class="container section empty-state"><span class="eyebrow">404</span><h1>{t(lang,'This directory page was not found')}</h1><p>{t(lang,'The doctor, provider or specialty/location combination may not be in this dataset.')}</p><a class="btn btn-primary" href={localizedPath(lang,'/doctors')}>{t(lang,'Find a Doctor')}</a></div>
+</Layout>

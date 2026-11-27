@@ -1,0 +1,8 @@
+---
+import GeographyFields from './GeographyFields';
+import {specialties,locations,value} from '../../lib/directory';
+import type {Query} from '../../lib/types';
+import {type Locale,t,localizedPath,specialty} from '../../lib/i18n';
+const {query={},lang}=Astro.props as {query?:Query;lang:Locale};
+---
+<form class="search-grid" action={localizedPath(lang,'/doctors')} method="get" role="search"><div class="field"><label for="doctor-search">{t(lang,'Name or keyword')}</label><input id="doctor-search" name="q" value={value(query,'q')} placeholder={t(lang,'Doctor, hospital or area')} maxlength={200}/></div><div class="field"><label for="search-specialty">{t(lang,'Specialty')}</label><select id="search-specialty" name="specialty"><option value="">{t(lang,'Any specialty')}</option>{specialties.map(s=><option value={s.slug} selected={value(query,'specialty')===s.slug}>{specialty(lang,s.name)}</option>)}</select></div><GeographyFields client:load lang={lang} prefix="search" options={locations.map(({slug,name,kind,parent})=>({slug,name,kind,parent}))} initialDivision={value(query,'division')} initialDistrict={value(query,'district')}/><button class="btn btn-primary" type="submit">{t(lang,'Search Doctors')}</button></form>

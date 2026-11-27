@@ -1,0 +1,506 @@
+[
+  {
+    "slug": "dhaka-division",
+    "kind": "division",
+    "parent": null,
+    "doctorProfiles": 1229,
+    "chambers": 1262
+  },
+  {
+    "slug": "dhaka",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 957,
+    "chambers": 990
+  },
+  {
+    "slug": "chattogram-division",
+    "kind": "division",
+    "parent": null,
+    "doctorProfiles": 478,
+    "chambers": 492
+  },
+  {
+    "slug": "chattogram",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 283,
+    "chambers": 297
+  },
+  {
+    "slug": "sylhet-division",
+    "kind": "division",
+    "parent": null,
+    "doctorProfiles": 260,
+    "chambers": 279
+  },
+  {
+    "slug": "sylhet",
+    "kind": "district",
+    "parent": "sylhet-division",
+    "doctorProfiles": 205,
+    "chambers": 223
+  },
+  {
+    "slug": "khulna-division",
+    "kind": "division",
+    "parent": null,
+    "doctorProfiles": 325,
+    "chambers": 356
+  },
+  {
+    "slug": "khulna",
+    "kind": "district",
+    "parent": "khulna-division",
+    "doctorProfiles": 162,
+    "chambers": 193
+  },
+  {
+    "slug": "barishal-division",
+    "kind": "division",
+    "parent": null,
+    "doctorProfiles": 244,
+    "chambers": 297
+  },
+  {
+    "slug": "barishal",
+    "kind": "district",
+    "parent": "barishal-division",
+    "doctorProfiles": 138,
+    "chambers": 191
+  },
+  {
+    "slug": "rangpur-division",
+    "kind": "division",
+    "parent": null,
+    "doctorProfiles": 253,
+    "chambers": 287
+  },
+  {
+    "slug": "rangpur",
+    "kind": "district",
+    "parent": "rangpur-division",
+    "doctorProfiles": 129,
+    "chambers": 163
+  },
+  {
+    "slug": "mymensingh-division",
+    "kind": "division",
+    "parent": null,
+    "doctorProfiles": 247,
+    "chambers": 308
+  },
+  {
+    "slug": "mymensingh",
+    "kind": "district",
+    "parent": "mymensingh-division",
+    "doctorProfiles": 192,
+    "chambers": 253
+  },
+  {
+    "slug": "rajshahi-division",
+    "kind": "division",
+    "parent": null,
+    "doctorProfiles": 655,
+    "chambers": 662
+  },
+  {
+    "slug": "rajshahi",
+    "kind": "district",
+    "parent": "rajshahi-division",
+    "doctorProfiles": 283,
+    "chambers": 290
+  },
+  {
+    "slug": "narayanganj",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 67,
+    "chambers": 67
+  },
+  {
+    "slug": "natore",
+    "kind": "district",
+    "parent": "rajshahi-division",
+    "doctorProfiles": 37,
+    "chambers": 37
+  },
+  {
+    "slug": "chapainawabganj",
+    "kind": "district",
+    "parent": "rajshahi-division",
+    "doctorProfiles": 33,
+    "chambers": 33
+  },
+  {
+    "slug": "naogaon",
+    "kind": "district",
+    "parent": "rajshahi-division",
+    "doctorProfiles": 43,
+    "chambers": 43
+  },
+  {
+    "slug": "joypurhat",
+    "kind": "district",
+    "parent": "rajshahi-division",
+    "doctorProfiles": 44,
+    "chambers": 44
+  },
+  {
+    "slug": "sirajganj",
+    "kind": "district",
+    "parent": "rajshahi-division",
+    "doctorProfiles": 36,
+    "chambers": 36
+  },
+  {
+    "slug": "bogura",
+    "kind": "district",
+    "parent": "rajshahi-division",
+    "doctorProfiles": 92,
+    "chambers": 92
+  },
+  {
+    "slug": "pabna",
+    "kind": "district",
+    "parent": "rajshahi-division",
+    "doctorProfiles": 87,
+    "chambers": 87
+  },
+  {
+    "slug": "kurigram",
+    "kind": "district",
+    "parent": "rangpur-division",
+    "doctorProfiles": 13,
+    "chambers": 13
+  },
+  {
+    "slug": "dinajpur",
+    "kind": "district",
+    "parent": "rangpur-division",
+    "doctorProfiles": 30,
+    "chambers": 30
+  },
+  {
+    "slug": "lalmonirhat",
+    "kind": "district",
+    "parent": "rangpur-division",
+    "doctorProfiles": 16,
+    "chambers": 16
+  },
+  {
+    "slug": "gaibandha",
+    "kind": "district",
+    "parent": "rangpur-division",
+    "doctorProfiles": 16,
+    "chambers": 16
+  },
+  {
+    "slug": "panchagarh",
+    "kind": "district",
+    "parent": "rangpur-division",
+    "doctorProfiles": 12,
+    "chambers": 12
+  },
+  {
+    "slug": "habiganj",
+    "kind": "district",
+    "parent": "sylhet-division",
+    "doctorProfiles": 16,
+    "chambers": 17
+  },
+  {
+    "slug": "nilphamari",
+    "kind": "district",
+    "parent": "rangpur-division",
+    "doctorProfiles": 22,
+    "chambers": 22
+  },
+  {
+    "slug": "moulvibazar",
+    "kind": "district",
+    "parent": "sylhet-division",
+    "doctorProfiles": 21,
+    "chambers": 21
+  },
+  {
+    "slug": "thakurgaon",
+    "kind": "district",
+    "parent": "rangpur-division",
+    "doctorProfiles": 15,
+    "chambers": 15
+  },
+  {
+    "slug": "sunamganj",
+    "kind": "district",
+    "parent": "sylhet-division",
+    "doctorProfiles": 18,
+    "chambers": 18
+  },
+  {
+    "slug": "jhalokati",
+    "kind": "district",
+    "parent": "barishal-division",
+    "doctorProfiles": 22,
+    "chambers": 22
+  },
+  {
+    "slug": "patuakhali",
+    "kind": "district",
+    "parent": "barishal-division",
+    "doctorProfiles": 26,
+    "chambers": 26
+  },
+  {
+    "slug": "bhola",
+    "kind": "district",
+    "parent": "barishal-division",
+    "doctorProfiles": 27,
+    "chambers": 27
+  },
+  {
+    "slug": "pirojpur",
+    "kind": "district",
+    "parent": "barishal-division",
+    "doctorProfiles": 16,
+    "chambers": 16
+  },
+  {
+    "slug": "barguna",
+    "kind": "district",
+    "parent": "barishal-division",
+    "doctorProfiles": 15,
+    "chambers": 15
+  },
+  {
+    "slug": "feni",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 16,
+    "chambers": 16
+  },
+  {
+    "slug": "brahmanbaria",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 20,
+    "chambers": 20
+  },
+  {
+    "slug": "lakshmipur",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 12,
+    "chambers": 12
+  },
+  {
+    "slug": "cox-s-bazar",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 39,
+    "chambers": 39
+  },
+  {
+    "slug": "noakhali",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 23,
+    "chambers": 23
+  },
+  {
+    "slug": "chandpur",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 16,
+    "chambers": 16
+  },
+  {
+    "slug": "khagrachhari",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 16,
+    "chambers": 16
+  },
+  {
+    "slug": "cumilla",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 15,
+    "chambers": 15
+  },
+  {
+    "slug": "jamalpur",
+    "kind": "district",
+    "parent": "mymensingh-division",
+    "doctorProfiles": 20,
+    "chambers": 20
+  },
+  {
+    "slug": "sherpur",
+    "kind": "district",
+    "parent": "mymensingh-division",
+    "doctorProfiles": 15,
+    "chambers": 15
+  },
+  {
+    "slug": "netrokona",
+    "kind": "district",
+    "parent": "mymensingh-division",
+    "doctorProfiles": 20,
+    "chambers": 20
+  },
+  {
+    "slug": "rangamati",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 25,
+    "chambers": 25
+  },
+  {
+    "slug": "manikganj",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 17,
+    "chambers": 17
+  },
+  {
+    "slug": "tangail",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 15,
+    "chambers": 15
+  },
+  {
+    "slug": "rajbari",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 15,
+    "chambers": 15
+  },
+  {
+    "slug": "narsingdi",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 27,
+    "chambers": 27
+  },
+  {
+    "slug": "faridpur",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 22,
+    "chambers": 22
+  },
+  {
+    "slug": "gazipur",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 23,
+    "chambers": 23
+  },
+  {
+    "slug": "madaripur",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 17,
+    "chambers": 17
+  },
+  {
+    "slug": "kishoreganj",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 15,
+    "chambers": 15
+  },
+  {
+    "slug": "munshiganj",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 13,
+    "chambers": 13
+  },
+  {
+    "slug": "meherpur",
+    "kind": "district",
+    "parent": "khulna-division",
+    "doctorProfiles": 13,
+    "chambers": 13
+  },
+  {
+    "slug": "shariatpur",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 25,
+    "chambers": 25
+  },
+  {
+    "slug": "bagerhat",
+    "kind": "district",
+    "parent": "khulna-division",
+    "doctorProfiles": 15,
+    "chambers": 15
+  },
+  {
+    "slug": "satkhira",
+    "kind": "district",
+    "parent": "khulna-division",
+    "doctorProfiles": 22,
+    "chambers": 22
+  },
+  {
+    "slug": "chuadanga",
+    "kind": "district",
+    "parent": "khulna-division",
+    "doctorProfiles": 12,
+    "chambers": 12
+  },
+  {
+    "slug": "gopalganj",
+    "kind": "district",
+    "parent": "dhaka-division",
+    "doctorProfiles": 16,
+    "chambers": 16
+  },
+  {
+    "slug": "jashore",
+    "kind": "district",
+    "parent": "khulna-division",
+    "doctorProfiles": 17,
+    "chambers": 17
+  },
+  {
+    "slug": "narail",
+    "kind": "district",
+    "parent": "khulna-division",
+    "doctorProfiles": 13,
+    "chambers": 13
+  },
+  {
+    "slug": "magura",
+    "kind": "district",
+    "parent": "khulna-division",
+    "doctorProfiles": 23,
+    "chambers": 23
+  },
+  {
+    "slug": "kushtia",
+    "kind": "district",
+    "parent": "khulna-division",
+    "doctorProfiles": 12,
+    "chambers": 12
+  },
+  {
+    "slug": "jhenaidah",
+    "kind": "district",
+    "parent": "khulna-division",
+    "doctorProfiles": 36,
+    "chambers": 36
+  },
+  {
+    "slug": "bandarban",
+    "kind": "district",
+    "parent": "chattogram-division",
+    "doctorProfiles": 13,
+    "chambers": 13
+  }
+]

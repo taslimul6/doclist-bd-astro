@@ -1,0 +1,15 @@
+{
+  "idempotent": true,
+  "preservedDoctorIdsAndSlugs": 2044,
+  "districts": 64,
+  "divisions": 8,
+  "orphanReferences": 0,
+  "geographyMemberships": "exact match to merged chambers",
+  "counts": {
+    "doctors": 3643,
+    "chambers": 3943,
+    "specialtyListings": 5903,
+    "districts": 64,
+    "divisions": 8
+  }
+}

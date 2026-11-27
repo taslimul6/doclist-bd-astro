@@ -1,0 +1,8 @@
+---
+import ReleaseLink from './ReleaseLink.astro';
+import {isPublished} from '../../lib/publication';
+import type {Specialty} from '../../lib/types';
+import {type Locale,localizedPath,specialty,doctorsLabel} from '../../lib/i18n';
+const {specialty:s,lang}=Astro.props as {specialty:Specialty;lang:Locale};
+---
+{isPublished('/specialty/'+s.slug)&&<ReleaseLink class="card specialty-card card-hover" href={localizedPath(lang,'/specialty/'+s.slug)}><span class="icon-box" aria-hidden="true">+</span><div><h3>{specialty(lang,s.name)}</h3><p>{doctorsLabel(lang,s.doctorIds.length)}</p></div></ReleaseLink>}

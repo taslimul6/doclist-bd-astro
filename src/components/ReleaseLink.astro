@@ -1,0 +1,9 @@
+---
+import type {HTMLAttributes} from 'astro/types';
+import {isPublishedHref} from '../../lib/publication';
+// A link to a page that is not released yet renders as plain text, so unreleased URLs never leak.
+type Props=HTMLAttributes<'a'>;
+const {href,...props}=Astro.props;
+const hidden=!!href&&!isPublishedHref(String(href));
+---
+{hidden?<span class={props.class} lang={props.lang}><slot/></span>:<a {...props} href={href}><slot/></a>}

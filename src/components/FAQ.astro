@@ -1,0 +1,8 @@
+---
+import Schema from './Schema.astro';
+import {type Locale,t} from '../../lib/i18n';
+import {generalFAQs,type FAQItem} from '../../lib/faq';
+const {items,lang}=Astro.props as {items?:FAQItem[];lang:Locale};
+const faqs=items||generalFAQs(lang);
+---
+<section class="content-card"><h2>{t(lang,'Frequently Asked Questions')}</h2><div class="faq">{faqs.map(x=><details><summary>{x.q}</summary><p>{x.a}</p></details>)}</div><Schema data={{'@type':'FAQPage',inLanguage:lang==='bn'?'bn-BD':'en-BD',mainEntity:faqs.map(x=>({'@type':'Question',name:x.q,acceptedAnswer:{'@type':'Answer',text:x.a}}))}}/></section>

@@ -1,0 +1,33 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ReleaseLink from '../../../components/ReleaseLink.astro';
+import PageDates from '../../../components/PageDates.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Schema from '../../../components/Schema.astro';
+import DoctorCard from '../../../components/DoctorCard.astro';
+import FAQ from '../../../components/FAQ.astro';
+import {getHospitalBySlug,getSpecialtyBySlug,getLocationBySlug,doctorsFromIds,hospitalSpecialty} from '../../../../lib/directory';
+import {metadata,absolute} from '../../../../lib/seo';
+import {phoneHref} from '../../../../lib/utils';
+import {getLocale} from '../../../../lib/locale';
+import {t,pick,provider,place,specialty,address,num,localizedPath} from '../../../../lib/i18n';
+
+const lang=getLocale(Astro.params.lang);
+if(!lang)return Astro.rewrite('/404');
+const h=getHospitalBySlug(Astro.params.slug!);
+if(!h)return Astro.rewrite('/404');
+const district=getLocationBySlug(h.district),name=provider(lang,h.name),url=(path:string)=>localizedPath(lang,path);
+const meta=metadata(pick(lang,name+' — Doctors & Chamber Information',name+' — ডাক্তার ও চেম্বারের তথ্য'),pick(lang,`Explore ${h.doctorIds.length} doctors listed at ${h.name}. Browse specialties, addresses, contacts and chamber details.`,`${name}-এ তালিকাভুক্ত ${num(lang,h.doctorIds.length)} জন ডাক্তার দেখুন। বিশেষজ্ঞ বিভাগ, ঠিকানা, যোগাযোগ ও চেম্বারের তথ্য জানুন।`),'/hospital/'+h.slug,{},lang);
+---
+<Layout lang={lang} meta={meta}>
+<PageDates path={'/hospital/'+h.slug} lang={lang}/>
+<section class="profile-hero"><div class="container"><Breadcrumbs lang={lang} items={[{label:t(lang,'Hospitals'),href:url('/hospitals')},...(district?[{label:place(lang,district.name),href:url('/hospitals')+'?location='+district.slug}]:[]),{label:name}]}/><div class="hospital-header"><div class="hospital-logo" aria-hidden="true">{h.name.split(/\s+/).slice(0,2).map(x=>x[0]).join('')}</div><div><span class="pill brand">{t(lang,h.type)}</span><h1>{name}</h1>{h.addresses.map(a=><p>{address(lang,a)}</p>)}<div class="info-list"><span>{pick(lang,`${h.doctorIds.length} listed doctors`,`${num(lang,h.doctorIds.length)} জন তালিকাভুক্ত ডাক্তার`)}</span><span>{pick(lang,`${h.specialtySlugs.length} specialty categories`,`${num(lang,h.specialtySlugs.length)}টি বিশেষজ্ঞ বিভাগ`)}</span></div></div><ReleaseLink class="btn btn-primary" href={url('/hospital/'+h.slug+'/doctors')}>{t(lang,'View All Doctors')}</ReleaseLink></div></div></section>
+<div class="container section stack">
+<section class="content-card"><h2>{t(lang,'Appointment Information')}</h2>{h.phones.length>0?<div class="district-cloud">{h.phones.map(p=><ReleaseLink href={phoneHref(p)}>{t(lang,'Call')} <span lang="en">{p}</span></ReleaseLink>)}</div>:<p>{t(lang,'Appointment contact details are not listed for this provider.')}</p>}<p>{t(lang,'Confirm the doctor’s chamber, schedule and consultation fee directly with the provider before visiting.')}</p></section>
+<section class="content-card"><h2>{pick(lang,'Doctors by Specialty at '+name,name+'-এর বিশেষজ্ঞ বিভাগ অনুযায়ী ডাক্তার')}</h2><div class="district-cloud">{h.specialtySlugs.map(s=>{const sp=getSpecialtyBySlug(s);return sp&&hospitalSpecialty[h.slug+'/'+s]?<ReleaseLink href={url('/hospital/'+h.slug+'/'+s)}>{specialty(lang,sp.name)} ({num(lang,hospitalSpecialty[h.slug+'/'+s].length)})</ReleaseLink>:null;})}</div></section>
+<section><div class="section-heading"><h2>{t(lang,'Doctor Profiles')}</h2><ReleaseLink class="btn btn-secondary" href={url('/hospital/'+h.slug+'/doctors')}>{t(lang,'Full Doctor List')}</ReleaseLink></div><div class="stack">{doctorsFromIds(h.doctorIds).slice(0,4).map(d=><DoctorCard lang={lang} doctor={d} hospitalSlug={h.slug}/>)}</div></section>
+<FAQ lang={lang}/>
+<section class="content-card"><h2>{t(lang,'Listing Sources')}</h2><ul class="source-list">{h.sources.map(u=><li><ReleaseLink href={u} target="_blank" rel="noopener noreferrer" lang="en">{u}</ReleaseLink></li>)}</ul></section>
+</div>
+<Schema data={{'@type':h.type.toLowerCase().includes('hospital')?'Hospital':'MedicalOrganization',name,alternateName:h.name,url:absolute(url('/hospital/'+h.slug)),...(h.addresses[0]?{address:{'@type':'PostalAddress',streetAddress:address(lang,h.addresses[0]),addressCountry:'BD'}}:{}),...(h.phones[0]?{telephone:h.phones[0]}:{})}}/>
+</Layout>

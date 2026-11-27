@@ -1,0 +1,51 @@
+{
+  "collectedAt": "2026-10-17T08:39:39.278247+00:00",
+  "doctorsTotal": 3643,
+  "sourcePages": 450,
+  "matchedCandidates": 191,
+  "localPhotos": 1638,
+  "missingPhotos": 2005,
+  "bytes": 37565642,
+  "failures": [
+    {
+      "sourcePage": "https://appointment.squarehospital.com/doctors/department/GYNE%20%26%20GYNE%20ONCOLOGY",
+      "error": "502, message='Bad Gateway', url='https://appointment.squarehospital.com/doctors/department/GYNE%20&%20GYNE%20ONCOLOGY'"
+    },
+    {
+      "sourcePage": "https://appointment.squarehospital.com/doctors/department/GENERAL%20SURGERY",
+      "error": "502, message='Bad Gateway', url='https://appointment.squarehospital.com/doctors/department/GENERAL%20SURGERY'"
+    },
+    {
+      "sourcePage": "https://appointment.squarehospital.com/doctors/department/ONCOLOGY",
+      "error": "502, message='Bad Gateway', url='https://appointment.squarehospital.com/doctors/department/ONCOLOGY'"
+    },
+    {
+      "sourcePage": "https://appointment.squarehospital.com/doctors/department/dermatology",
+      "error": "502, message='Bad Gateway', url='https://appointment.squarehospital.com/doctors/department/dermatology'"
+    },
+    {
+      "sourcePage": "https://appointment.squarehospital.com/doctors/department/ORTHOPEDICS",
+      "error": "502, message='Bad Gateway', url='https://appointment.squarehospital.com/doctors/department/ORTHOPEDICS'"
+    },
+    {
+      "sourcePage": "https://appointment.squarehospital.com/doctors/department/PHYSICAL%20MEDICINE%20%26%20REHABILITATION",
+      "error": "502, message='Bad Gateway', url='https://appointment.squarehospital.com/doctors/department/PHYSICAL%20MEDICINE%20&%20REHABILITATION'"
+    },
+    {
+      "sourcePage": "https://appointment.squarehospital.com/doctors/department/UROLOGY",
+      "error": "502, message='Bad Gateway', url='https://appointment.squarehospital.com/doctors/department/UROLOGY'"
+    },
+    {
+      "sourcePage": "https://appointment.squarehospital.com/doctors/department/endocrinology",
+      "error": "502, message='Bad Gateway', url='https://appointment.squarehospital.com/doctors/department/endocrinology'"
+    },
+    {
+      "sourcePage": "https://appointment.squarehospital.com/doctors/department/CLINICAL%20HEMATOLOGY",
+      "error": "502, message='Bad Gateway', url='https://appointment.squarehospital.com/doctors/department/CLINICAL%20HEMATOLOGY'"
+    }
+  ],
+  "rejectedPlaceholders": 43,
+  "newLocalPhotos": 148,
+  "latestAdditionalPortraits": 42,
+  "latestAdditionalReport": "reports/additional-portraits-report.json"
+}

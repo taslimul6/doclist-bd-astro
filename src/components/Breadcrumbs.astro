@@ -1,0 +1,10 @@
+---
+import ReleaseLink from './ReleaseLink.astro';
+import Schema from './Schema.astro';
+import {absolute} from '../../lib/seo';
+import {type Locale,t,localizedPath} from '../../lib/i18n';
+const {items,lang}=Astro.props as {items:{label:string;href?:string}[];lang:Locale};
+const all=[{label:t(lang,'Home'),href:localizedPath(lang,'/')},...items];
+---
+<nav class="breadcrumb" aria-label={lang==='bn'?'পথ নির্দেশনা':'Breadcrumb'}>{all.map((item,i)=><span>{i>0&&<span class="sep" aria-hidden="true"> / </span>}{item.href?<ReleaseLink href={item.href}>{item.label}</ReleaseLink>:<span aria-current="page">{item.label}</span>}</span>)}</nav>
+<Schema data={{'@type':'BreadcrumbList',itemListElement:all.map((x,i)=>({'@type':'ListItem',position:i+1,name:x.label,...(x.href?{item:absolute(x.href)}:{})}))}}/>

@@ -1,0 +1,8 @@
+---
+import ReleaseLink from './ReleaseLink.astro';
+import {isPublished} from '../../lib/publication';
+import type {Hospital} from '../../lib/types';
+import {type Locale,t,localizedPath,provider,address,num,doctorsLabel,pick} from '../../lib/i18n';
+const {hospital:h,lang}=Astro.props as {hospital:Hospital;lang:Locale};
+---
+{isPublished('/hospital/'+h.slug)&&<article class="card hospital-card card-hover"><div class="hospital-head"><div class="hospital-logo" aria-hidden="true">{h.name.split(/\s+/).slice(0,2).map(x=>x[0]).join('')}</div><div><h3><ReleaseLink href={localizedPath(lang,'/hospital/'+h.slug)}>{provider(lang,h.name)}</ReleaseLink></h3><p>{t(lang,h.type)}</p></div></div><div class="stats"><span>{doctorsLabel(lang,h.doctorIds.length)}</span><span>{pick(lang,`${num(lang,h.specialtySlugs.length)} specialties`,`${num(lang,h.specialtySlugs.length)}টি বিশেষজ্ঞ বিভাগ`)}</span></div>{h.addresses[0]&&<p>{address(lang,h.addresses[0])}</p>}<ReleaseLink class="btn btn-secondary" href={localizedPath(lang,'/hospital/'+h.slug+'/doctors')}>{t(lang,'View Doctor List')}</ReleaseLink></article>}

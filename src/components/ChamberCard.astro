@@ -1,0 +1,8 @@
+---
+import ReleaseLink from './ReleaseLink.astro';
+import {phoneHref} from '../../lib/utils';
+import type {Chamber} from '../../lib/types';
+import {type Locale,t,localizedPath,provider,address,schedule,num} from '../../lib/i18n';
+const {chamber,lang}=Astro.props as {chamber:Chamber;lang:Locale};
+---
+<article class="content-card chamber-card"><div><h3><ReleaseLink href={localizedPath(lang,'/hospital/'+chamber.hospitalSlug)}>{provider(lang,chamber.name)}</ReleaseLink></h3>{chamber.address&&<p>{address(lang,chamber.address)}</p>}<div class="chamber-meta">{chamber.schedule&&<span><strong>{t(lang,'Visiting schedule')}: </strong>{schedule(lang,chamber.schedule)}</span>}{chamber.phone&&<span><strong>{t(lang,'Appointment phone')}: </strong><span lang="en">{chamber.phone}</span></span>}{chamber.fee&&<span><strong>{t(lang,'Fee')}: </strong>৳{num(lang,Number(chamber.fee))}</span>}</div><p class="small">{t(lang,'Confirm the latest schedule and fee before visiting.')}</p></div><div class="chamber-actions">{chamber.phone&&<ReleaseLink class="btn btn-primary" href={phoneHref(chamber.phone)}>{t(lang,'Call for Appointment')}</ReleaseLink>}<ReleaseLink class="btn btn-secondary" href={localizedPath(lang,'/hospital/'+chamber.hospitalSlug)}>{t(lang,'View Hospital')}</ReleaseLink>{chamber.source&&<ReleaseLink class="source-link" href={chamber.source} target="_blank" rel="noopener noreferrer">{t(lang,'Listing source')}</ReleaseLink>}</div></article>

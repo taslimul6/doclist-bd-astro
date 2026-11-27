@@ -1,0 +1,20 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import ListingPage from '../../../components/ListingPage.astro';
+import {metadata} from '../../../../lib/seo';
+import {getLocale} from '../../../../lib/locale';
+import {queryFrom} from '../../../../lib/utils';
+import {runListing} from '../../../../lib/listing';
+import {specialtyContext} from '../../../../lib/page-contexts';
+
+const lang=getLocale(Astro.params.lang);
+if(!lang)return Astro.rewrite('/404');
+const query=queryFrom(Astro.url.searchParams);
+const c=specialtyContext(Astro.params.slug!,lang);
+if(!c)return Astro.rewrite('/404');
+if(Astro.params.slug!==c.specialty!.slug)return Astro.redirect(c.path,301);
+const {result,baseCount,invalid}=runListing(c,query);
+if(invalid)return Astro.rewrite('/404');
+const meta=metadata(c.title,c.description,c.path,query,lang);
+---
+<Layout lang={lang} meta={meta}><ListingPage lang={lang} context={c} query={query} result={result} baseCount={baseCount}/></Layout>
